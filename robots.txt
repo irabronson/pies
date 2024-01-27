@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://ira.design/sitemap.txt
