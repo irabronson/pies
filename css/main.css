@@ -1,0 +1,260 @@
+
+
+/* ========================================
+
+  BASELINE, RESET
+
+=========================================== */
+
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #f3f3f3;
+	font: 600 clamp(19px, 1.3vw, 24px)/1.3 Helvetica, Arial, sans-serif;
+	letter-spacing: -0.02em;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+}
+
+figure {
+	margin: 0
+}
+
+video,
+img {
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+
+
+
+
+/* ========================================
+
+  GLOBAL
+
+=========================================== */
+
+
+/* -------- Page, Sections */
+
+.page-container {
+	width: 94%;
+	margin-inline: auto;
+}
+
+.page-section {
+	margin-bottom: 12%;
+}
+
+#download.page-section {
+	/* Accounting for the .category-item margin that can't be consistently targeted with :last-child */
+	margin-top: -6%;
+}
+
+#category-content {
+	min-height: 100vh;
+}
+
+/* -------- Footer */
+
+
+
+
+
+/* ========================================
+
+  FILTER MENU
+
+=========================================== */
+
+
+#filters a {
+	font-size: 24px;
+	margin-right: 16px;
+}
+
+#filters a:link, #filters a:visited, #filters a:active {
+	color: #888;
+	outline: none;
+	text-decoration: none;
+}
+
+#filters a.active {
+	color: #000;
+}
+
+
+
+
+/* ========================================
+
+  GRID LAYOUT, ITEMS
+
+=========================================== */
+
+
+#category-collection {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	height: auto;
+}
+
+.category-item {
+	width: 22%;
+	margin-top: 6%;
+	margin-bottom: 6%;
+	transition: margin-top 0s 0.2s;
+}
+
+figure {
+	border: 6px solid #000;
+	border-radius: 16px;
+	overflow: hidden;
+	transform: translateZ(0); /* Need for overflow: hidden to work in Safari */
+}
+
+
+/* -------- Phones */
+
+/* Big phone */
+:nth-child(4n + 1 of .phone) {
+	width: 28%;
+	margin-right: 20%;
+}
+
+/* Small phone centered */
+:nth-child(8n + 4 of .phone) {
+	margin-left: 20%;
+}
+
+/* Add top margin */
+:nth-child(2 of .controls .phone.visible),
+:nth-child(3 of .controls .phone.visible) {
+	margin-top: 20%;
+}
+
+
+
+/* -------- QR - Desktop only */
+
+.qr-container {
+	display: none;
+}
+
+@media (min-width:800px) {
+	
+	.qr-container {
+		background: #fff;
+		display: block;
+		position: absolute;
+		z-index: 1;
+		left: 1.2vw;
+		bottom: 1.2vw;
+		width: 42px;
+		box-sizing: border-box;
+		border-radius: 4px;
+		filter: drop-shadow(rgb(0 0 0 / .08) 0 8px 8px);
+		transition: width 0.15s;
+	}
+	
+	.qr-icon-container {
+		position: absolute;
+		z-index: 2;
+		left: 10px;
+		bottom: 10px;
+		width: 22px;
+		height: 22px;
+		cursor: pointer;
+	}
+
+	.qr-icon-container img {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	.qr-img {
+		opacity: 0;
+		padding: 0;
+		box-sizing: border-box;
+		transition: opacity 0.1s, padding 0.1s;
+	}
+
+	.qr-container.open {
+		width: 70%;
+	}
+	.qr-container.open .icon.qr-icon,
+	.qr-container .icon.close {
+		transform: scale(0);
+	}
+
+	.qr-container.open .icon.close {
+		transform: scale(1);
+		transition-delay: 0.07s;
+	}
+
+	.qr-icon-container .icon {
+		transition: transform 0.2s;
+	}
+	
+	.qr-container.open .qr-img {
+		opacity: 1;
+		padding: 15% 15% 22%;
+		box-sizing: border-box;
+		transition: opacity 0.2s;
+	}
+
+}
+
+@media (min-width:1440px) {
+
+	.qr-container {
+		width: 48px;
+		border-radius: 8px;
+		/* padding: 12% 12% 22%; */
+	}
+
+	.qr-icon-container {
+		width: 28px;
+		height: 28px;
+	}
+
+}
+
+
+
+
+/* -------- Desktop */
+
+.desktop {
+	width: 100%;
+	margin-left: 12%;
+	margin-right: 12%;	
+}
+
+.desktop-container {
+	display: flex;
+	align-items: center;
+	gap: 4%;
+}
+
+.desktop-container.right {
+	flex-direction: row-reverse;
+}
+
+.desktop .description {
+	width: 75%;
+}
+

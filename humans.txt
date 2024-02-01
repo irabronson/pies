@@ -23,8 +23,6 @@
 
 	SUPPORT
 
-	John Bell
-	Lucas Bustamante
 	Swans
 	Dalek
 	Pom Pom Squad
@@ -46,7 +44,6 @@
 	CSS3
 	PHP
 	JavaScript
-	jQuery
 
 
 
@@ -54,7 +51,7 @@
 
 
 
-	2022
+	2024
 
 
 
