@@ -1,5 +1,3 @@
-
-
 /* ========================================
 
   BASELINE, RESET
@@ -7,66 +5,184 @@
 =========================================== */
 
 
-body {
-	padding: 0;
-	margin: 0;
-	background: #f3f3f3;
-	font: 600 clamp(19px, 1.3vw, 24px)/1.3 Helvetica, Arial, sans-serif;
-	letter-spacing: -0.02em;
+h1,
+h2,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
 }
 
-ul {
-	margin: 0;
-	padding: 0;
+p {
+  margin: 0 0 1.2em;
 }
 
 li {
-	display: inline;
-}
-
-figure {
-	margin: 0
+  display: inline;
 }
 
 video,
 img {
-	width: 100%;
-	height: auto;
-	vertical-align: middle;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
-
-
 
 
 
 /* ========================================
 
-  GLOBAL
+  FOUNDATIONS
 
 =========================================== */
+
+
+/* -------- Defining variables */
+
+:root {
+  /* Colors */
+  --color-primary: #000;
+  --color-secondary: #8c8c8c;
+  --color-light: #f3f3f3;
+  /* Typography */
+  --text-large: clamp(72px, 10.106vw, 164px);
+  --text-medium: clamp(38px, 5.186vw, 84px);
+  --text-small: clamp(24px, 2.393vw, 40px);
+  --text-body: clamp(20px, 1.5vw, 24px);
+  --letter-spacing-tightest: -0.04em;
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.02em;
+  /* Spacing */
+  --spacing-large: 20%;
+  --spacing-medium: 12%;
+  --spacing-small: 6%;
+  --spacing-xsmall: 2%;
+  /* Border */
+  --border-link: 0.12em solid var(--color-primary);
+  --border-device: 0.25em solid var(--color-primary);
+  /* Border radius */
+  --border-radius: 0.65em;
+  /* Device widths */
+  --device-width-full: 100%;
+  --device-width-large: 28%;
+  --device-width-small: 22%;
+}
+
+
+/* -------- Body */
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--color-light);
+  /* 20px up to 1333 > vw > 24px @1600 */
+  font: 600 var(--text-body)/1.3 Helvetica, Arial, sans-serif;
+  letter-spacing: var(--letter-spacing-tight);
+  /* Improves font display by rendering the weight correctly
+  Appearance is too thick without it */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox on MacOS */
+}
+
+
+/* -------- Typography */
+
+h1,
+#download a {
+  font-size: var(--text-large);
+  letter-spacing: var(--letter-spacing-tightest);
+  line-height: 1;
+}
+
+h2,
+#download p {
+  font-size: var(--text-medium);
+  letter-spacing: var(--letter-spacing-tightest);
+  line-height: 1;
+}
+
+#filters li,
+.description a,
+footer p {
+  font-size: var(--text-small);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+a:link,
+a:visited,
+a:active {
+  color: var(--color-primary);
+  text-decoration: none;
+  padding-bottom: 0.1em;
+  border-bottom: var(--border-link);
+}
 
 
 /* -------- Page, Sections */
 
 .page-container {
-	width: 94%;
-	margin-inline: auto;
+  --page-width: 94%;
+  width: var(--page-width);
+  margin-inline: auto;
+}
+
+header {
+  margin-top: var(--spacing-xsmall);  
+}
+
+nav {
+  margin: var(--spacing-xsmall) 0 var(--spacing-small);  
 }
 
 .page-section {
-	margin-bottom: 12%;
-}
-
-#download.page-section {
-	/* Accounting for the .category-item margin that can't be consistently targeted with :last-child */
-	margin-top: -6%;
+  margin-bottom: var(--spacing-medium);
 }
 
 #category-content {
-	min-height: 100vh;
+  min-height: 100vh;
 }
 
-/* -------- Footer */
+#download.page-section {
+  /* Accounting for the .category-item margin that can't be consistently targeted with :last-child */
+  /* Note the calc var * -1 to get the negative value */
+  margin-top: calc(var(--spacing-small) * -1);
+}
+
+#download a {
+  display: inline-block;
+  margin-bottom: var(--spacing-xsmall);
+}
+
+#about {
+  width: clamp(420px, 32%, 600px);
+}
+
+
+/* -------- Filter menu */
+
+#filters li {
+  margin-right: 24px;
+}
+
+#filters a:link,
+#filters a:visited,
+#filters a:active {
+  color: var(--color-secondary);
+  border-color: transparent;
+  transition: color 0.2s, border 0.2s;
+  transform: translateZ(0); /* Need for Safari */
+}
+
+#filters a:hover {
+  color: var(--color-primary);
+}
+
+#filters a.active {
+  color: var(--color-primary);
+  border-bottom: var(--border-link);
+}
+
+
 
 
 
@@ -74,25 +190,109 @@ img {
 
 /* ========================================
 
-  FILTER MENU
+  ANIMATION
 
 =========================================== */
 
 
-#filters a {
-	font-size: 24px;
-	margin-right: 16px;
+.intro {
+  /* background: rgb(222 0 0 / .2); */
+  position: fixed;
+  top: 0;
+  left: -0.5%;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 53vw;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.06em;
+  animation: zeroheight 0s 2.4s forwards;
 }
 
-#filters a:link, #filters a:visited, #filters a:active {
-	color: #888;
-	outline: none;
-	text-decoration: none;
+.split {
+  display: flex;
 }
 
-#filters a.active {
-	color: #000;
+/* Because Firefox renders text baseline or vertical alignment differently (really only noticeable at these large sizes), the intro was sitting higher in the viewport (i.e. in the text containing block), so adding padding for Firefox. */
+@-moz-document url-prefix() {
+  .split {
+    padding-top: 7vw;      
+  }
 }
+
+.split span {
+  opacity: 0;
+  animation: intro 1s cubic-bezier(0.5, 0.2, 0.1, 1) 2 alternate;
+}
+
+.split span.i {
+  animation-delay: 0.05s;
+}
+
+.split span.e {
+  animation-delay: 0.1s;
+}
+
+.split span.s {
+  animation-delay: 0.15s;
+}
+
+@keyframes intro {
+  0%, 20% {
+    opacity: 0;
+    transform: translate3d(0, 80vh, 0);
+  }
+  80% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+
+.animate-in {
+  opacity: 0;
+  animation: animate-in 0.5s cubic-bezier(0.3, 0, 0.2, 1) 1.9s forwards;
+}
+
+.animate-in.step-2 {
+  animation-delay: 1.95s;
+}
+
+.animate-in.step-3 {
+  animation-delay: 2s;
+}
+
+@keyframes animate-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12vw, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zeroheight {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+
+
+
+
 
 
 
@@ -105,156 +305,264 @@ img {
 
 
 #category-collection {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .category-item {
-	width: 22%;
-	margin-top: 6%;
-	margin-bottom: 6%;
-	transition: margin-top 0s 0.2s;
+  width: var(--device-width-small);
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
 }
 
 figure {
-	border: 6px solid #000;
-	border-radius: 16px;
-	overflow: hidden;
-	transform: translateZ(0); /* Need for overflow: hidden to work in Safari */
+  border: var(--border-device);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transform: translateZ(0); /* Need for overflow: hidden to work in Safari */
 }
 
 
-/* -------- Phones */
+/* -------- Device / Phones */
+
+.phone .description {
+  margin-top: var(--spacing-small);
+}
 
 /* Big phone */
 :nth-child(4n + 1 of .phone) {
-	width: 28%;
-	margin-right: 20%;
+  width: var(--device-width-large);
+  margin-right: var(--spacing-large);
 }
 
 /* Small phone centered */
 :nth-child(8n + 4 of .phone) {
-	margin-left: 20%;
-}
-
-/* Add top margin */
-:nth-child(2 of .controls .phone.visible),
-:nth-child(3 of .controls .phone.visible) {
-	margin-top: 20%;
+  margin-left: var(--spacing-large);
 }
 
 
-
-/* -------- QR - Desktop only */
-
-.qr-container {
-	display: none;
-}
-
-@media (min-width:800px) {
-	
-	.qr-container {
-		background: #fff;
-		display: block;
-		position: absolute;
-		z-index: 1;
-		left: 1.2vw;
-		bottom: 1.2vw;
-		width: 42px;
-		box-sizing: border-box;
-		border-radius: 4px;
-		filter: drop-shadow(rgb(0 0 0 / .08) 0 8px 8px);
-		transition: width 0.15s;
-	}
-	
-	.qr-icon-container {
-		position: absolute;
-		z-index: 2;
-		left: 10px;
-		bottom: 10px;
-		width: 22px;
-		height: 22px;
-		cursor: pointer;
-	}
-
-	.qr-icon-container img {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-	}
-
-	.qr-img {
-		opacity: 0;
-		padding: 0;
-		box-sizing: border-box;
-		transition: opacity 0.1s, padding 0.1s;
-	}
-
-	.qr-container.open {
-		width: 70%;
-	}
-	.qr-container.open .icon.qr-icon,
-	.qr-container .icon.close {
-		transform: scale(0);
-	}
-
-	.qr-container.open .icon.close {
-		transform: scale(1);
-		transition-delay: 0.07s;
-	}
-
-	.qr-icon-container .icon {
-		transition: transform 0.2s;
-	}
-	
-	.qr-container.open .qr-img {
-		opacity: 1;
-		padding: 15% 15% 22%;
-		box-sizing: border-box;
-		transition: opacity 0.2s;
-	}
-
-}
-
-@media (min-width:1440px) {
-
-	.qr-container {
-		width: 48px;
-		border-radius: 8px;
-		/* padding: 12% 12% 22%; */
-	}
-
-	.qr-icon-container {
-		width: 28px;
-		height: 28px;
-	}
-
-}
-
-
-
-
-/* -------- Desktop */
+/* -------- Device / Desktop */
 
 .desktop {
-	width: 100%;
-	margin-left: 12%;
-	margin-right: 12%;	
+  width: var(--device-width-full);
+  margin-left: var(--spacing-medium);
+  margin-right: var(--spacing-medium);	
 }
 
 .desktop-container {
-	display: flex;
-	align-items: center;
-	gap: 4%;
+  display: flex;
+  align-items: center;
+  gap: 4%;
 }
 
 .desktop-container.right {
-	flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .desktop .description {
-	width: 75%;
+  width: 75%;
 }
 
+
+
+/* ========================================
+
+  INTERACTIONS
+
+=========================================== */
+
+
+/* -------- Back to top */
+
+/* Common to all screens */
+.back-to-top {
+  background: var(--color-light) url("/img/icon-back-to-top.svg") no-repeat center;
+  display: block;
+  border: var(--border-link);
+  border-width: 4px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 50px 24px 0;
+  height: 0;
+  width: 0;
+	opacity: 0;
+	visibility: hidden;
+	cursor: pointer;
+	transition: opacity 0.5s, visibility 0s 0.5s, transform 0.2s;
+}
+
+.back-to-top.scrolled {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0s;
+}
+
+/* Small screens */
+@media (max-width:560px) {
+  #back-to-top-container {
+    margin: var(--spacing-large) 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Desktop */
+@media (min-width:561px) {
+  #back-to-top-container {
+  	position: fixed;
+  	right: 1.6vw;
+  	bottom: 1.6vw;
+  	z-index: 2;
+  }
+  .back-to-top:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+/* -------- QR code - Desktop only */
+
+.qr-container {
+  display: none;
+}
+
+/* Show it if 800 and up */
+
+@media (min-width:800px) {
+
+  .qr-container {
+    display: block;
+    position: absolute;
+    left: 1vw;
+    bottom: 1vw;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border-radius: 4px 4px 4px 2px;
+    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.08));
+    transform-origin: bottom left;
+    transform: scale(1);
+    transition: transform 0.15s;
+    cursor: pointer;
+  }
+  
+  .category-item.phone figure::before,
+  .category-item.phone figure::after {
+    position: absolute;
+    left: calc(1vw + 10px);
+    bottom: calc(1vw + 10px);
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    content: "";
+    background-size: 22px 22px;
+    transition: transform 0.15s;
+    pointer-events: none;
+  }
+
+  .category-item.phone figure::before {
+    background-image: url('/img/icon-qrcode.svg'); 
+  }
+
+  .category-item.phone figure::after {
+    background-image: url('/img/icon-close.svg');
+    transform: scale(0);
+  }
+
+  .qr-img {
+    padding: 15% 15% 22%;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.1s;
+    transform: translateZ(0); /* Need for Safari to display the image properly when scaled */
+  }
+  
+  .open .qr-container {
+    height: auto;
+    transform: scale(4);
+  }
+
+  .category-item.phone figure.open::before {
+    transform: scale(0);
+  }
+  
+  .category-item.phone figure.open::after {
+    transform: scale(1);
+    transition-delay: 0.07s;
+  }
+  
+  .category-item.phone figure.open .qr-img {
+    opacity: 1;
+  }
+
+}
+
+/* Bigger QR image 1200 and up */
+
+@media (min-width:1200px) {
+
+  .open .qr-container {
+    transform: scale(5);
+  }
+
+}
+
+/* Bigger icon 1600 and up */
+
+@media (min-width:1600px) {
+
+  .qr-container {
+    width: 48px;
+    height: 48px;
+    /* border-radius: 8px; */
+  }
+
+  .category-item.phone figure::before,
+  .category-item.phone figure::after {
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+  }
+
+}
+
+
+
+/* ========================================
+
+  SMALL SCREENS
+
+=========================================== */
+
+
+@media (max-width:560px) {
+  
+  :root {
+    /* Device widths */
+    --device-width-large: 75%;
+    --device-width-small: 65%;
+  }
+  
+  .page-container {
+    width: 90%;
+  }
+  
+  :nth-child(4n + 1 of .phone) {
+    margin-right: 0;
+  }
+  
+  .desktop-container {
+    display: initial;
+  }
+  
+  .desktop .description {
+    width: initial;
+  }
+  
+  #about {
+    width: 100%;
+  }
+  
+}
