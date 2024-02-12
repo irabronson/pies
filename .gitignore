@@ -4,4 +4,8 @@
 
 # Ignore Mac system files 
 .DS_Store
-.DS_Store
+
+# Ignore test files
+css/test.css
+js/test.js
+test.php

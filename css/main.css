@@ -13,6 +13,16 @@ figure {
   padding: 0;
 }
 
+button {
+  font-family: inherit; /* Most form elements don't inherit by default */
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
 p {
   margin: 0 0 1.2em;
 }
@@ -27,7 +37,6 @@ img {
   height: auto;
   vertical-align: middle;
 }
-
 
 
 /* ========================================
@@ -62,7 +71,8 @@ img {
   --border-device: 0.25em solid var(--color-primary);
   /* Border radius */
   --border-radius: 0.65em;
-  /* Device widths */
+  /* Widths */
+  --page-container: 94%;
   --device-width-full: 100%;
   --device-width-large: 28%;
   --device-width-small: 22%;
@@ -85,24 +95,23 @@ body {
 }
 
 
-/* -------- Typography */
+/* -------- Typography, Links */
 
-h1,
-#download a {
+h1 {
   font-size: var(--text-large);
   letter-spacing: var(--letter-spacing-tightest);
   line-height: 1;
 }
 
-h2,
-#download p {
+h2 {
   font-size: var(--text-medium);
   letter-spacing: var(--letter-spacing-tightest);
   line-height: 1;
 }
 
-#filters li,
+#filters *,
 .description a,
+#download *,
 footer p {
   font-size: var(--text-small);
   letter-spacing: var(--letter-spacing-tighter);
@@ -111,18 +120,79 @@ footer p {
 a:link,
 a:visited,
 a:active {
+  position: relative;
   color: var(--color-primary);
   text-decoration: none;
   padding-bottom: 0.1em;
   border-bottom: var(--border-link);
+  transition: padding-right 0.3s cubic-bezier(0.7, 0, 0, 0.9);
 }
 
+#filters a:link,
+#filters a:visited,
+#filters a:active {
+  color: var(--color-secondary);
+  border-color: transparent;
+  transition: color 0.2s;
+  transform: translateZ(0); /* Need for Safari */
+}
+
+#filters a.active {
+  color: var(--color-primary);
+  border-bottom: var(--border-link);
+}
+
+/* Show link hover if 800 and up */
+
+@media (min-width:800px) {
+
+  a:hover:not(#filters a) {
+    padding-right: 0.9em;
+  }
+  
+  a:not(#filters a) span {
+    position: absolute;
+    top: 0.25em;
+    margin-left: 0.2em;
+    width: 0.7em;
+    height: 0.7em;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  /* Adjusting that ^ span/icon position in Firefox */
+  @-moz-document url-prefix() {
+    a:not(#filters a) span {
+      top: 0.1em;
+    }
+  }
+  
+  a:not(#filters a) span::after {
+    display: block;
+    width: 0.7em;
+    height: 0.7em;
+    content: "";
+    background: url(/img/icon-arrow.svg) no-repeat 50% 50%;
+    background-size: 1em;
+    transform: rotate(90deg);
+    translate: -0.7em;
+    transition: translate 0.3s cubic-bezier(0.7, 0, 0, 0.9);
+  }
+  
+  a:hover:not(#filters a) span::after {
+    translate: 0;
+  }
+  
+  #filters a:hover {
+    color: var(--color-primary);
+  }
+  
+}
 
 /* -------- Page, Sections */
 
 .page-container {
-  --page-width: 94%;
-  width: var(--page-width);
+  width: var(--page-container);
   margin-inline: auto;
 }
 
@@ -131,122 +201,110 @@ header {
 }
 
 nav {
-  margin: var(--spacing-xsmall) 0 var(--spacing-small);  
+  margin: var(--spacing-xsmall) 0 var(--spacing-small);
+  scroll-margin: 1.4vw; /* scrollIntoView target */
 }
 
 .page-section {
   margin-bottom: var(--spacing-medium);
 }
 
-#category-content {
-  min-height: 100vh;
-}
-
-#download.page-section {
-  /* Accounting for the .category-item margin that can't be consistently targeted with :last-child */
-  /* Note the calc var * -1 to get the negative value */
-  margin-top: calc(var(--spacing-small) * -1);
-}
-
-#download a {
-  display: inline-block;
-  margin-bottom: var(--spacing-xsmall);
-}
-
-#about {
-  width: clamp(420px, 32%, 600px);
+.transition {
+  opacity: 0;
 }
 
 
-/* -------- Filter menu */
+/* -------- Nav filters */
 
-#filters li {
-  margin-right: 24px;
+#filters li:not(:last-child) {
+  margin-right: 0.5em;
 }
-
-#filters a:link,
-#filters a:visited,
-#filters a:active {
-  color: var(--color-secondary);
-  border-color: transparent;
-  transition: color 0.2s, border 0.2s;
-  transform: translateZ(0); /* Need for Safari */
-}
-
-#filters a:hover {
-  color: var(--color-primary);
-}
-
-#filters a.active {
-  color: var(--color-primary);
-  border-bottom: var(--border-link);
-}
-
-
-
-
 
 
 
 /* ========================================
 
-  ANIMATION
+  FIXED FILTER INTERACTIONS
 
 =========================================== */
 
 
-.intro {
-  /* background: rgb(222 0 0 / .2); */
+/* -------- Show/hide filters on scroll */
+
+nav .fixed {
   position: fixed;
-  top: 0;
-  left: -0.5%;
+  top:  1.6vw;
+  left: 4vw;
   z-index: 2;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  font-size: 53vw;
   display: flex;
-  align-items: center;
-  letter-spacing: -0.06em;
-  animation: zeroheight 0s 2.4s forwards;
-}
-
-.split {
-  display: flex;
-}
-
-/* Because Firefox renders text baseline or vertical alignment differently (really only noticeable at these large sizes), the intro was sitting higher in the viewport (i.e. in the text containing block), so adding padding for Firefox. */
-@-moz-document url-prefix() {
-  .split {
-    padding-top: 7vw;      
-  }
-}
-
-.split span {
+  border-radius: 64px;
+  background: var(--color-light);
+  visibility: hidden;
   opacity: 0;
-  animation: intro 1s cubic-bezier(0.5, 0.2, 0.1, 1) 2 alternate;
+  transform: translateY(-2vw);
+  transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
 }
 
-.split span.i {
-  animation-delay: 0.05s;
+nav.hidden .fixed {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
 }
 
-.split span.e {
-  animation-delay: 0.1s;
+/* -------- Open/close filters */
+
+nav .fixed button,
+nav .fixed ul {
+  padding: 0.4em 1em;
 }
 
-.split span.s {
-  animation-delay: 0.15s;
+nav .fixed button {
+  position: relative;
+  z-index: 2;
+  line-height: inherit;
+  cursor: pointer;
+  opacity: 1;
 }
 
-@keyframes intro {
-  0%, 20% {
+nav .fixed.open button {
+  padding-right: 0;
+  opacity: 0;
+}
+
+nav .fixed ul {
+  opacity: 0;
+  display: none;
+}
+
+nav .fixed.open ul {
+  display: block;
+  padding-left: 0;
+  animation: filter-list-in 0.2s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+}
+
+nav .fixed .label::before {
+  background: url('/img/icon-close.svg') no-repeat; 
+  position: absolute;
+  left: 1.5em;
+  top: 0.7em;
+  z-index: 1;
+  width: 0.8em;
+  height: 0.8em;
+  background-size: 0.8em 0.8em;
+  transform: scale(0);
+  content: "";
+}
+
+nav .fixed.open .label::before {
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+
+@keyframes filter-list-in {
+  0% {
     opacity: 0;
-    transform: translate3d(0, 80vh, 0);
-  }
-  80% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(-1vw, 0, 0);
   }
   100% {
     opacity: 1;
@@ -254,19 +312,141 @@ nav {
   }
 }
 
+/* -------- Setting immediate dismissal of nav upon close to override its animation */
 
+nav .fixed.dismiss {
+  transition: none;
+  visibility: hidden;
+}
+
+
+
+/* ========================================
+
+  ANIMATIONS
+
+=========================================== */
+
+
+/* -------- Intro */
+
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden; /* For zeroHeight */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  animation: zeroHeight 0s 2.8s forwards;
+}
+
+@keyframes zeroHeight {
+  /* Collapsing container to get it out da way */
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+/* Variable values to calculate an animation-delay */ 
+.intro span:nth-child(4) { --intro-order: 1; }
+.intro span:nth-child(6) { --intro-order: 2; }
+.intro span:nth-child(1) { --intro-order: 3; }
+.intro span:nth-child(8) { --intro-order: 4; }
+.intro span:nth-child(15) { --intro-order: 5; }
+.intro span:nth-child(2) { --intro-order: 6; }
+.intro span:nth-child(9) { --intro-order: 7; }
+.intro span:nth-child(13) { --intro-order: 8; }
+.intro span:nth-child(5) { --intro-order: 9; }
+.intro span:nth-child(11) { --intro-order: 10; }
+.intro span:nth-child(7) { --intro-order: 11; }
+.intro span:nth-child(16) { --intro-order: 12; }
+.intro span:nth-child(14) { --intro-order: 13; }
+.intro span:nth-child(12) { --intro-order: 14; }
+.intro span:nth-child(10) { --intro-order: 15; }
+.intro span:nth-child(3) { --intro-order: 16; }
+
+
+/* Initial animation - In */ 
+.intro span {
+  background: url("/img/icon-pie.svg") no-repeat center;
+  background-size: 8vw;
+  animation: introIn 1s calc(var(--intro-order) * 0.04s) backwards;
+}
+
+/* Second animation - Out */ 
+.intro span.out {
+  animation: introOut 0.4s cubic-bezier(0.7, 0, 0.2, 0.9) forwards;
+}
+
+/* Sequential delays for Out exit */ 
+.intro span.out:nth-child(1) { animation-delay: 0.7s; }
+.intro span.out:nth-child(2) { animation-delay: 0.65s; }
+.intro span.out:nth-child(3) { animation-delay: 0.6s; }
+.intro span.out:nth-child(4) { animation-delay: 0.55s; }
+.intro span.out:nth-child(5) { animation-delay: 0.5s; }
+.intro span.out:nth-child(6) { animation-delay: 0.45s; }
+.intro span.out:nth-child(7) { animation-delay: 0.4s; }
+.intro span.out:nth-child(8) { animation-delay: 0.35s; }
+.intro span.out:nth-child(9) { animation-delay: 0.3s; }
+.intro span.out:nth-child(10) { animation-delay: 0.25s; }
+.intro span.out:nth-child(11) { animation-delay: 0.2s; }
+.intro span.out:nth-child(12) { animation-delay: 0.15s; }
+.intro span.out:nth-child(13) { animation-delay: 0.1s; }
+.intro span.out:nth-child(14) { animation-delay: 0.05s; }
+.intro span.out:nth-child(15) { animation-delay: 0.02s; }
+.intro span.out:nth-child(16) { animation-delay: 0s; }
+
+/* Redefine grid as 4x4 for small screens */
+@media (max-width:799px) {
+  .intro {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@keyframes introIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes introOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12vw);
+  }
+}
+
+/* -------- Full page/content */
 
 .animate-in {
   opacity: 0;
-  animation: animate-in 0.5s cubic-bezier(0.3, 0, 0.2, 1) 1.9s forwards;
+  animation: animate-in 0.5s cubic-bezier(0.3, 0, 0.2, 1) 2.2s forwards;
 }
 
 .animate-in.step-2 {
-  animation-delay: 1.95s;
+  animation-delay: 2.25s;
 }
 
 .animate-in.step-3 {
-  animation-delay: 2s;
+  animation-delay: 2.3s;
 }
 
 @keyframes animate-in {
@@ -280,20 +460,86 @@ nav {
   }
 }
 
-@keyframes zeroheight {
-  0% {
-    height: 100vh;
-  }
-  100% {
-    height: 0;
+/* -------- Delaying display of filter and back to top so they don't appear on a scrolled page reload */
+
+nav .fixed.hide,
+#back-to-top-container.hide {
+  opacity: 0;
+  transition: 0s;
+}
+
+#back-to-top-container {
+  transition: opacity 0.2s 0.2s;
+}
+
+/* -------- Letters in / Split elements */
+
+.letters-in {
+  margin-left: -4%;
+  font-size: 53vw;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+}
+
+.split {
+  display: flex;
+  width: var(--page-container);
+  height: 100%;
+}
+
+/* Because Firefox renders text baseline or vertical alignment differently (really only noticeable at these large sizes), the letters are sitting higher in the text containing block, so adding padding for Firefox. */
+@-moz-document url-prefix() {
+  .split {
+    padding-top: 7vw;      
   }
 }
 
+.split span {
+  opacity: 0;
+  animation: split 1s cubic-bezier(0.5, 0.2, 0.1, 1) forwards;
+}
 
+.intro .split span {
+  background: url("/img/icon-pie.svg") no-repeat center;
+  background-size: 98%;
+  flex-grow: 1;
+}
 
+.letters-in span {
+  /* For triggering via IO and need this starting state */
+  opacity: 0;
+}
 
+.split span:nth-child(2) {
+  animation-delay: 0.07s;
+}
 
+.split span:nth-child(3) {
+  animation-delay: 0.14s;
+}
 
+.split span:nth-child(4) {
+  animation-delay: 0.21s;
+}
+
+.split span:nth-child(5) {
+  animation-delay: 0.28s;
+}
+
+@keyframes split {
+  0%, 30% {
+    opacity: 0;
+    transform: translate3d(0, 32vw, 0);
+  }
+  80% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 
 
@@ -361,14 +607,41 @@ figure {
 }
 
 .desktop .description {
-  width: 75%;
+  width: 60%;
+  max-width: 560px
+}
+
+
+/* ========================================
+
+  SECTION-SPECIFIC STYLING (S³)
+
+=========================================== */
+
+
+#category-content {
+  min-height: 100vh;
+}
+
+.letters-in.page-section {
+  /* Accounting for the .category-item bottom-margin that can't be consistently targeted with :last-child */
+  /* Note the calc var * -1 to get the negative value */
+  margin-top: calc(var(--spacing-small) * -1);
+}
+
+#download p {
+  margin-top: 0.4%; /* Need a one-off, man */
+}
+
+#about {
+  width: clamp(420px, 32%, 600px);
 }
 
 
 
 /* ========================================
 
-  INTERACTIONS
+  INTERACTIVE FEATURES
 
 =========================================== */
 
@@ -376,25 +649,26 @@ figure {
 /* -------- Back to top */
 
 /* Common to all screens */
+
 .back-to-top {
-  background: var(--color-light) url("/img/icon-back-to-top.svg") no-repeat center;
+  background: var(--color-light) url("/img/icon-arrow.svg") no-repeat center;
   display: block;
-  border: var(--border-link);
-  border-width: 4px;
   border-radius: 50%;
   overflow: hidden;
-  padding: 50px 24px 0;
+  padding: 80px 40px 0;
   height: 0;
   width: 0;
 	opacity: 0;
 	visibility: hidden;
 	cursor: pointer;
-	transition: opacity 0.5s, visibility 0s 0.5s, transform 0.2s;
+  transform: translateY(2vw);
+	transition: opacity 0.2s, visibility 0s 0.2s, transform 0.2s;
 }
 
 .back-to-top.scrolled {
 	opacity: 1;
 	visibility: visible;
+  transform: translateY(0);
 	transition-delay: 0s;
 }
 
@@ -411,12 +685,12 @@ figure {
 @media (min-width:561px) {
   #back-to-top-container {
   	position: fixed;
-  	right: 1.6vw;
-  	bottom: 1.6vw;
+  	right: 4vw;
+  	top: 1.6vw;
   	z-index: 2;
   }
   .back-to-top:hover {
-    transform: scale(1.1);
+    transform: translateY(-0.4vw);
   }
 }
 
@@ -529,7 +803,6 @@ figure {
 }
 
 
-
 /* ========================================
 
   SMALL SCREENS
@@ -549,6 +822,33 @@ figure {
     width: 90%;
   }
   
+  nav.page-container {
+    top: 0;
+    background: var(--color-light);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 8% 5%;
+    overflow-x: scroll;
+  }
+
+  nav.page-container.nav-sticky {
+    border-bottom: var(--border-link);
+  }
+  
+  nav ul {
+    width: max-content;
+  }
+  
+  nav > ul {
+    padding-right: 5%;
+  }
+  
+  nav .fixed li {
+    display: flex;
+  }
+  
+
+
   :nth-child(4n + 1 of .phone) {
     margin-right: 0;
   }
@@ -561,6 +861,10 @@ figure {
     width: initial;
   }
   
+  #category-content {
+    scroll-margin: 14vh;
+  }
+
   #about {
     width: 100%;
   }
