@@ -61,23 +61,26 @@
       <!-- ========== Nav -->
       <nav id="filters" class="page-container">
         <ul class="animate-in step-2">
-          <li><a href="#" data-filter="all" class="active">All</a></li>
+          <li><a href="#" data-filter="all" class="active">All Pies</a></li>
           <li><a href="#" data-filter="text-inputs">Text &amp; Inputs</a></li>
           <li><a href="#" data-filter="controls">Controls</a></li>
           <li><a href="#" data-filter="scrolly-stuff">Scrolly Stuff</a></li>
           <li><a href="#" data-filter="other">Other</a></li>
         </ul>
         <div class="fixed start">
-          <span class="label">
+          <span class="label animate-in step-4">
             <button type="button" title="Filter categories">Category</button>
           </span>
-          <ul>
-            <li><a href="#" data-filter="all" class="active">All</a></li>
-            <li><a href="#" data-filter="text-inputs">Text &amp; Inputs</a></li>
-            <li><a href="#" data-filter="controls">Controls</a></li>
-            <li><a href="#" data-filter="scrolly-stuff">Scrolly Stuff</a></li>
-            <li><a href="#" data-filter="other">Other</a></li>
-          </ul>
+          <div class="mobile-list-container">
+            <ul>
+              <li><a href="#" data-filter="all" class="active">All Pies</a></li>
+              <li><a href="#" data-filter="text-inputs">Text &amp; Inputs</a></li>
+              <li><a href="#" data-filter="controls">Controls</a></li>
+              <li><a href="#" data-filter="scrolly-stuff">Scrolly Stuff</a></li>
+              <li><a href="#" data-filter="other">Other</a></li>
+            </ul>
+            <img src="/img/icon-close.svg" title="Close this menu" alt="Icon indicating a 'close' action" width="148" height="148">
+          </div>
         </div>
       </nav>
 
@@ -695,7 +698,7 @@
     
           <!-- Download -->
           <div id="download" class="page-section">
-            <a href="" download="/pie-assets/pies-02122024.zip" title="Download all Pies">Download all<span></span></a>
+            <a href="" download="/pie-assets/pies-02122024.zip" title="Download all Pies">Download all Pies<span></span></a>
             <p>zip / 82 MB</p>
           </div>
   
@@ -719,8 +722,6 @@
       <div id="back-to-top-container" class="start">
         <button type="button" class="back-to-top" title="Back to top">Back to top</button>
       </div>
-
-
 
   </body>
 </html>

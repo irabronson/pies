@@ -15,12 +15,13 @@ figure {
 
 button {
   font-family: inherit; /* Most form elements don't inherit by default */
+  line-height: inherit;
   background: none;
   border: none;
   margin: 0;
   padding: 0;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 p {
@@ -142,6 +143,10 @@ a:active {
   border-bottom: var(--border-link);
 }
 
+#filters .fixed a.active {
+  color: var(--color-light);
+}
+
 /* Show link hover if 800 and up */
 
 @media (min-width:800px) {
@@ -186,6 +191,10 @@ a:active {
   #filters a:hover {
     color: var(--color-primary);
   }
+
+  #filters .fixed a:hover {
+    color: var(--color-light);
+  }
   
 }
 
@@ -202,7 +211,6 @@ header {
 
 nav {
   margin: var(--spacing-xsmall) 0 var(--spacing-small);
-  scroll-margin: 1.4vw; /* scrollIntoView target */
 }
 
 .page-section {
@@ -214,13 +222,6 @@ nav {
 }
 
 
-/* -------- Nav filters */
-
-#filters li:not(:last-child) {
-  margin-right: 0.5em;
-}
-
-
 
 /* ========================================
 
@@ -229,96 +230,112 @@ nav {
 =========================================== */
 
 
-/* -------- Show/hide filters on scroll */
+/* Desktop only */
+@media (min-width:561px) {
 
-nav .fixed {
-  position: fixed;
-  top:  1.6vw;
-  left: 4vw;
-  z-index: 2;
-  display: flex;
-  border-radius: 64px;
-  background: var(--color-light);
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-2vw);
-  transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
-}
-
-nav.hidden .fixed {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-
-/* -------- Open/close filters */
-
-nav .fixed button,
-nav .fixed ul {
-  padding: 0.4em 1em;
-}
-
-nav .fixed button {
-  position: relative;
-  z-index: 2;
-  line-height: inherit;
-  cursor: pointer;
-  opacity: 1;
-}
-
-nav .fixed.open button {
-  padding-right: 0;
-  opacity: 0;
-}
-
-nav .fixed ul {
-  opacity: 0;
-  display: none;
-}
-
-nav .fixed.open ul {
-  display: block;
-  padding-left: 0;
-  animation: filter-list-in 0.2s cubic-bezier(0.3, 0, 0.2, 1) forwards;
-}
-
-nav .fixed .label::before {
-  background: url('/img/icon-close.svg') no-repeat; 
-  position: absolute;
-  left: 1.5em;
-  top: 0.7em;
-  z-index: 1;
-  width: 0.8em;
-  height: 0.8em;
-  background-size: 0.8em 0.8em;
-  transform: scale(0);
-  content: "";
-}
-
-nav .fixed.open .label::before {
-  transform: scale(1);
-  transition: transform 0.2s;
-}
-
-@keyframes filter-list-in {
-  0% {
+  /* -------- Show/hide filters on scroll */
+  
+  nav .fixed {
+    position: fixed;
+    top:  1.6vw;
+    left: 4vw;
+    z-index: 2;
+    display: flex;
+    border-radius: 64px;
+    background: var(--color-primary);
+    visibility: hidden;
     opacity: 0;
-    transform: translate3d(-1vw, 0, 0);
+    transform: translateY(-2vw);
+    transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
   }
-  100% {
+  
+  nav.hidden .fixed {
+    visibility: visible;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
+    transition-delay: 0.2s;
   }
+  
+  #filters li:not(:last-child) {
+    margin-right: 0.5em;
+  }
+  
+  /* -------- Open/close filters */
+  
+  nav .fixed button,
+  nav .fixed ul {
+    padding: 0.4em 1em;
+  }
+  
+  nav .fixed button {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+    text-wrap: nowrap;
+  }
+  
+  nav .fixed.nav-open button {
+    padding-right: 0;
+    opacity: 0;
+    width: 2.6em;
+    margin-right: 0.4em;
+  }
+  
+  nav .fixed ul {
+    opacity: 0;
+    display: none;
+  }
+  
+  nav .fixed.nav-open ul {
+    display: block;
+    padding-left: 0;
+    animation: filter-list-in 0.2s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+  }
+  
+  nav .fixed .label::before {
+    position: absolute;
+    left: 1.5em;
+    top: 0.7em;
+    z-index: 1;
+    background: var(--color-light);
+    mask-image: url("data:image/svg+xml,<svg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'><path d='M24.2522 6.22182L21.7773 3.74695L14 11.5243L6.22263 3.74695L3.74776 6.22182L11.5251 13.9992L3.74609 21.7782L6.22097 24.253L14 16.474L21.779 24.253L24.2539 21.7782L16.4748 13.9992L24.2522 6.22182Z'/></svg>");
+    mask-repeat: no-repeat;
+    width: 0.8em;
+    height: 0.8em;
+    transform: scale(0);
+    content: "";
+  }
+  
+  nav .fixed.nav-open .label::before {
+    transform: scale(1);
+    transition: transform 0.2s;
+  }
+
+  .mobile-list-container img {
+    display: none;
+  }
+
+  @keyframes filter-list-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(-1vw, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  /* -------- Setting immediate dismissal of nav upon close to override its animation */
+  
+  nav .fixed.dismiss {
+    transition: none;
+    visibility: hidden;
+  }
+
 }
-
-/* -------- Setting immediate dismissal of nav upon close to override its animation */
-
-nav .fixed.dismiss {
-  transition: none;
-  visibility: hidden;
-}
-
 
 
 /* ========================================
@@ -442,11 +459,15 @@ nav .fixed.dismiss {
 }
 
 .animate-in.step-2 {
-  animation-delay: 2.25s;
+  animation-delay: 2.3s;
 }
 
 .animate-in.step-3 {
-  animation-delay: 2.3s;
+  animation-delay: 2.4s;
+}
+
+.animate-in.step-4 {
+  animation-delay: 2.5s;
 }
 
 @keyframes animate-in {
@@ -462,14 +483,18 @@ nav .fixed.dismiss {
 
 /* -------- Delaying display of filter and back to top so they don't appear on a scrolled page reload */
 
-nav .fixed.hide,
-#back-to-top-container.hide {
-  opacity: 0;
-  transition: 0s;
-}
-
-#back-to-top-container {
-  transition: opacity 0.2s 0.2s;
+@media (min-width:561px) {
+  
+  nav .fixed.hide,
+  #back-to-top-container.hide {
+    opacity: 0;
+    transition: 0s;
+  }
+  
+  #back-to-top-container {
+    transition: opacity 0.2s 0.2s;
+  }
+  
 }
 
 /* -------- Letters in / Split elements */
@@ -821,34 +846,127 @@ figure {
   .page-container {
     width: 90%;
   }
-  
-  nav.page-container {
-    top: 0;
-    background: var(--color-light);
-    margin-left: 0;
-    margin-right: 0;
-    padding: 8% 5%;
-    overflow-x: scroll;
-  }
 
-  nav.page-container.nav-sticky {
-    border-bottom: var(--border-link);
-  }
-  
-  nav ul {
-    width: max-content;
-  }
+
+
+
+
+
   
   nav > ul {
-    padding-right: 5%;
+    display: none;
   }
   
-  nav .fixed li {
+  nav .fixed .label {
+    position: fixed;
+    bottom: 8vh;
+    z-index: 2;
     display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+
+  nav .fixed button {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: var(--color-primary);
+    padding: 0.8em 2em;
+    border-radius: 2em;
+  }
+
+  nav .fixed button::after {
+    background: url('/img/icon-caret.svg') no-repeat center;
+    background-size: 1.2em;
+    width: 1.2em;
+    height: 1em;
+    content: "";
   }
   
+  .mobile-list-container {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--color-light);
+    /* Adding overflow, height, and padding on the "off" state so there is no visible transition when some browsers collapse their bottom bar on scroll */    
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translateY(100vh);
+    transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 1) 0.1s, height 0s 0.4s, padding 0s 0.4s;
+  }
+
+  nav .fixed.nav-open .mobile-list-container {
+    height: 100dvh; /* Specifically dvh here so the open menu height matches the default or scrolled/collapsed browser states */
+    padding: 26vh 5% 0%;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.8, 0.2, 0.1, 1) 0.0s, height 0s 0s, padding 0s 0s;
+  }
+
+  .mobile-list-container img {
+    position: absolute;
+    z-index: 3;
+    bottom: 8vh;
+    left: 50%;
+    transform: translate3d(-50%, 6vh, 0);
+    display: flex;
+    justify-content: center;
+    width: 1.2em;
+    height: 1.2em;
+    padding: 0.8em;
+    opacity: 0;
+    transition-delay: 0.4s;
+  }
+  
+  nav .fixed.nav-open .mobile-list-container img {
+    transform: translate3d(-50%, 0, 0);
+    opacity: 1;
+    transition: transform 0.3s 0.3s, opacity 0.3s 0.3s;
+  }
+
+  nav .fixed ul {
+    transform: translateY(6vh);
+    opacity: 0;
+    transition-delay: 0.4s;
+  }
+
+  nav .fixed.nav-open ul {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.3s 0.2s, opacity 0.3s 0.2s;
+  }
 
 
+
+
+
+  nav .fixed li {
+    display: block;
+  }
+  
+  #filters .fixed a {
+    font-size: var(--text-medium);
+    letter-spacing: var(--letter-spacing-tightest);
+  }
+  
+  #filters .fixed a.active {
+    color: var(--color-primary);
+    border: none;
+  }
+  
+  body.nav-open {
+    overflow: hidden;
+  }
+  
+  
+  
+  
+  
+  
+  
   :nth-child(4n + 1 of .phone) {
     margin-right: 0;
   }

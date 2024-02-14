@@ -29,7 +29,7 @@ const fadeIn = (element, duration) => {
   element.style.transition = `opacity ${duration / 1000}s`;
   setTimeout(() => {
     element.style.opacity = 1;
-  }, 10); // Need this for ensuring the transition actually works in all browsers; despite it being captured inline
+  }, 20); // Need this for ensuring the transition actually works in all browsers; despite it being captured inline
 };
 
 const showFilter = filterValue => {
@@ -39,7 +39,6 @@ const showFilter = filterValue => {
     item.classList.remove('visible');
     fadeOut(item, 10);
   });
-  
   // Show the selected filter items
   if (filterValue === 'all') {
     filterItems.forEach(item => {
@@ -64,15 +63,13 @@ const updateActiveFilter = activeLink => {
   filterLinks.forEach(link => {
     link.classList.remove('active');
   });
-
   // Add 'active' class to all links with matching data-attribute
   const filterValue = activeLink.getAttribute('data-filter');
   filterLinks.forEach(link => {
     if (link.getAttribute('data-filter') === filterValue) {
       link.classList.add('active');
     }
-  });
-  
+  });  
   // Add class to #category-content based on the active link's data-filter
   listElement.className = ''; // Clear existing classes
   listElement.classList.add(filterValue);
@@ -84,38 +81,36 @@ window.addEventListener('popstate', () => {
   invokeOnHistoryStates();
 });
 
+// Perform actions on history states
 const invokeOnHistoryStates = () => {
-
   // Preventing jump if Back/Fwd buttons
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  
+  // Scroll to top of page
+  setTimeout(() => {
+    window.scrollTo({ top: 0 });
+  }, 40); // Give it time so no content visible on exit
+  // Reset letters-in element
+  setTimeout(() => {
+    document.querySelector('.letters-in > div').classList.remove('split');
+  }, 100);
   // Hide content during category switch
-  const contentElement = document.querySelector('.content');
-  if (contentElement) {
-    contentElement.classList.add('transition');
+  if (document.querySelector('.content')) {
+    document.querySelector('.content').classList.add('transition');
     setTimeout(() => {
-      contentElement.classList.remove('transition');
+      document.querySelector('.content').classList.remove('transition');
     }, 200);
   }
-
   // Add class 'dismiss' to element 'nav .fixed' and remove
-  const navFixedElement = document.querySelector('nav .fixed');
-  if (navFixedElement) {
-    navFixedElement.classList.add('dismiss');
+  if (document.querySelector('nav .fixed')) {
+    document.querySelector('nav .fixed').classList.add('dismiss');
     setTimeout(() => {
-      navFixedElement.classList.remove('dismiss');
-      // Also remove the class 'open' after 30 milliseconds
-      navFixedElement.classList.remove('open');
+      document.querySelector('nav .fixed').classList.remove('dismiss');
+      // Also remove the class 'open'
+      document.querySelector('nav .fixed').classList.remove('open');
     }, 100);
   }
-
-  // Scroll to top of page
-    setTimeout(() => {
-      window.scrollTo({ top: 0 });
-    }, 40); // Give it time so no content visible on exit
-
 };
 
 const applyInitialFilter = () => {
@@ -172,6 +167,41 @@ filterLinks.forEach(link => {
 =========================================== */
 
 
+
+/* -------- Update button text based on active category - Mobile only */
+
+if (window.matchMedia("(max-width: 560px)").matches) {
+  
+  const button = document.querySelector('nav .fixed button');
+  const observerConfig = {
+    attributes: true,
+    attributeFilter: ['class'],
+    attributeOldValue: true,
+  };
+  
+  const observerCallback = function(mutationsList) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const activeAnchor = document.querySelector('nav .fixed a.active');
+        if (activeAnchor) {
+          // Update button text with new active anchor text
+          button.textContent = activeAnchor.textContent;
+        }
+      }
+    }
+  };
+  
+  const observer = new MutationObserver(observerCallback);
+  observer.observe(document.querySelector('nav .fixed a'), observerConfig);
+  
+  // Set initial button text
+  const defaultActiveListItem = document.querySelector('nav .fixed a.active');
+  if (defaultActiveListItem) {
+    button.textContent = defaultActiveListItem.textContent;
+  }
+  
+}
+
 /* -------- Hide and reveal any elements on intro animation */
 /* e.g. Filters and back to top */
 
@@ -210,7 +240,7 @@ document.querySelectorAll('nav .fixed a').forEach(link => {
 });
 
 
-/* -------- Remove 'split' class from .letters-in element on new category selection */
+/* -------- Reset .letters-in element on new category selection */
 
 document.querySelectorAll('nav a').forEach(resetLettersIn => {
   resetLettersIn.addEventListener('click', (event) => {
@@ -223,10 +253,18 @@ document.querySelectorAll('nav a').forEach(resetLettersIn => {
 
 /* -------- Fire actions via filter and nav links */
 
-/* Add/remove 'open' class on filter container */
-/* Toggle via filter button */
+/* Toggle 'nav-open' class via filter button */
 document.querySelector('nav .fixed button').addEventListener('click', () => {
-	document.querySelector('nav .fixed').classList.toggle('open');
+  document.querySelectorAll('nav .fixed, body').forEach(function(element) {
+    element.classList.toggle('nav-open');
+  });
+});
+
+/* Remove 'open' when click mobile nav close icon */
+document.querySelector('.mobile-list-container img').addEventListener('click', () => {
+	document.querySelectorAll('nav .fixed, body').forEach(function(element) {
+    element.classList.remove('nav-open');
+  });
 });
 
 document.querySelectorAll('nav .fixed a').forEach(fixedFilterClose => {
@@ -235,11 +273,11 @@ document.querySelectorAll('nav .fixed a').forEach(fixedFilterClose => {
     document.querySelector('nav .fixed').classList.add('dismiss');
     // Hide content during category switch
     document.querySelector('.content').classList.add('transition'); 
-    // Reset mobile nav scroll position
-    document.querySelector('nav').scrollLeft = 0;
     setTimeout(() => {
-      // Remove 'open', 'dismiss' classes
-      document.querySelector('nav .fixed').classList.remove('open','dismiss');
+      // Remove 'nav-open', 'dismiss' classes
+      document.querySelectorAll('nav .fixed, body').forEach(function(element) {
+        element.classList.remove('nav-open', 'dismiss');
+      });
     }, 30);
     setTimeout(() => {
       // Reset content after category switch
