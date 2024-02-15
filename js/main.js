@@ -107,8 +107,8 @@ const invokeOnHistoryStates = () => {
     document.querySelector('nav .fixed').classList.add('dismiss');
     setTimeout(() => {
       document.querySelector('nav .fixed').classList.remove('dismiss');
-      // Also remove the class 'open'
-      document.querySelector('nav .fixed').classList.remove('open');
+      // Also remove the class 'nav-open'
+      document.querySelector('nav .fixed').classList.remove('nav-open');
     }, 100);
   }
 };
@@ -172,7 +172,7 @@ filterLinks.forEach(link => {
 
 if (window.matchMedia("(max-width: 560px)").matches) {
   
-  const button = document.querySelector('nav .fixed button');
+  const button = document.querySelector('header h3');
   const observerConfig = {
     attributes: true,
     attributeFilter: ['class'],
@@ -209,12 +209,20 @@ const elements = document.querySelectorAll('.start');
 elements.forEach(element => {
   element.classList.add('hide');
 });
-setTimeout(() => {
-  elements.forEach(element => {
-    element.classList.remove('hide');
-  });
-}, 2600);
-
+if (window.matchMedia("(max-width: 560px)").matches) {
+  setTimeout(() => {
+    elements.forEach(element => {
+      element.classList.remove('hide');
+    });
+  }, 2400);
+}
+if (window.matchMedia("(min-width: 561px)").matches) {
+  setTimeout(() => {
+    elements.forEach(element => {
+      element.classList.remove('hide');
+    });
+  }, 2800);
+}
 
 /* -------- Add class when intro animation completes */
 
@@ -261,7 +269,7 @@ document.querySelector('nav .fixed button').addEventListener('click', () => {
 });
 
 /* Remove 'open' when click mobile nav close icon */
-document.querySelector('.mobile-list-container img').addEventListener('click', () => {
+document.querySelector('.mobile-category-container img').addEventListener('click', () => {
 	document.querySelectorAll('nav .fixed, body').forEach(function(element) {
     element.classList.remove('nav-open');
   });
@@ -373,13 +381,20 @@ navObserver.observe(navElement);
 /* -------- Trigger .split animation on scroll */
 
 const splitElement = document.querySelector('.letters-in > div');
+// Setting rootMargin based on screen size
+// Desktop
+const optionsSplit = { rootMargin: '0% 0% 10% 0%' };
+// Mobile
+if (window.matchMedia("(max-width: 560px)").matches) {
+  optionsSplit.rootMargin = "0% 0% 30% 0%";
+}
 const splitObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('split');
     }
   });
-}, { rootMargin: '0% 0% 10% 0%' }
+}, optionsSplit
 );
 splitObserver.observe(splitElement);
 

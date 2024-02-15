@@ -56,6 +56,7 @@
       <header class="page-container">
         <h1 class="animate-in">Pies</h1>
         <h2 class="animate-in">Unstyled prototype parts for ProtoPie.</h2>
+        <h3 class="animate-in">All Pies</h3>
       </header>
 
       <!-- ========== Nav -->
@@ -71,7 +72,7 @@
           <span class="label animate-in step-4">
             <button type="button" title="Filter categories">Category</button>
           </span>
-          <div class="mobile-list-container">
+          <div class="mobile-category-container">
             <ul>
               <li><a href="#" data-filter="all" class="active">All Pies</a></li>
               <li><a href="#" data-filter="text-inputs">Text &amp; Inputs</a></li>
@@ -79,7 +80,7 @@
               <li><a href="#" data-filter="scrolly-stuff">Scrolly Stuff</a></li>
               <li><a href="#" data-filter="other">Other</a></li>
             </ul>
-            <img src="/img/icon-close.svg" title="Close this menu" alt="Icon indicating a 'close' action" width="148" height="148">
+            <img src="/img/icon-close.svg" title="Close this menu" alt="Icon indicating a 'close' action" width="68" height="68">
           </div>
         </div>
       </nav>
@@ -97,8 +98,7 @@
                   <div class="qr-container">
                     <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
                   </div> <!-- .qr-container -->
-                  <video class="lazy" preload="auto" muted playsinline loop width="390" height="844" data-src="/pie-assets/video/placeholder-input-390.mp4" poster="/pie-assets/image/placeholder-input-390-poster.webp">
-                    <source type="video/mp4" data-src="/pie-assets/video/placeholder-input-390.mp4">
+                  <video class="lazy" poster="/pie-assets/image/placeholder-input-390-poster.webp" data-src="/pie-assets/video/placeholder-input-390.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>

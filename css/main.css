@@ -7,6 +7,7 @@
 
 h1,
 h2,
+h3,
 ul,
 figure {
   margin: 0;
@@ -55,8 +56,9 @@ img {
   --color-secondary: #8c8c8c;
   --color-light: #f3f3f3;
   /* Typography */
-  --text-large: clamp(72px, 10.106vw, 164px);
-  --text-medium: clamp(38px, 5.186vw, 84px);
+  --text-large: clamp(88px, 10.106vw, 164px);
+  --text-medium: clamp(32px, 5.186vw, 84px);
+  --text-display-mobile: 50px;
   --text-small: clamp(24px, 2.393vw, 40px);
   --text-body: clamp(20px, 1.5vw, 24px);
   --letter-spacing-tightest: -0.04em;
@@ -165,13 +167,6 @@ a:active {
     pointer-events: none;
   }
   
-  /* Adjusting that ^ span/icon position in Firefox */
-  @-moz-document url-prefix() {
-    a:not(#filters a) span {
-      top: 0.1em;
-    }
-  }
-  
   a:not(#filters a) span::after {
     display: block;
     width: 0.7em;
@@ -198,6 +193,7 @@ a:active {
   
 }
 
+
 /* -------- Page, Sections */
 
 .page-container {
@@ -207,6 +203,11 @@ a:active {
 
 header {
   margin-top: var(--spacing-xsmall);  
+}
+
+h3 {
+  /* Category name on mobile */
+  display: none;
 }
 
 nav {
@@ -260,6 +261,11 @@ nav {
     margin-right: 0.5em;
   }
   
+  .label.animate-in.step-4 {
+    /* Preventing the button text from animating in on page load because it IS needed on mobile */
+    animation-delay: 0s;
+  }
+  
   /* -------- Open/close filters */
   
   nav .fixed button,
@@ -273,7 +279,6 @@ nav {
     overflow: hidden;
     cursor: pointer;
     opacity: 1;
-    text-wrap: nowrap;
   }
   
   nav .fixed.nav-open button {
@@ -301,6 +306,7 @@ nav {
     z-index: 1;
     background: var(--color-light);
     mask-image: url("data:image/svg+xml,<svg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'><path d='M24.2522 6.22182L21.7773 3.74695L14 11.5243L6.22263 3.74695L3.74776 6.22182L11.5251 13.9992L3.74609 21.7782L6.22097 24.253L14 16.474L21.779 24.253L24.2539 21.7782L16.4748 13.9992L24.2522 6.22182Z'/></svg>");
+    -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     width: 0.8em;
     height: 0.8em;
@@ -313,7 +319,7 @@ nav {
     transition: transform 0.2s;
   }
 
-  .mobile-list-container img {
+  .mobile-category-container img {
     display: none;
   }
 
@@ -483,19 +489,16 @@ nav {
 
 /* -------- Delaying display of filter and back to top so they don't appear on a scrolled page reload */
 
-@media (min-width:561px) {
-  
-  nav .fixed.hide,
-  #back-to-top-container.hide {
-    opacity: 0;
-    transition: 0s;
-  }
-  
-  #back-to-top-container {
-    transition: opacity 0.2s 0.2s;
-  }
-  
+nav .fixed.hide,
+#back-to-top-container.hide {
+  opacity: 0;
+  transition: 0s;
 }
+
+#back-to-top-container {
+  transition: opacity 0.2s 0.2s;
+}
+  
 
 /* -------- Letters in / Split elements */
 
@@ -510,13 +513,6 @@ nav {
   display: flex;
   width: var(--page-container);
   height: 100%;
-}
-
-/* Because Firefox renders text baseline or vertical alignment differently (really only noticeable at these large sizes), the letters are sitting higher in the text containing block, so adding padding for Firefox. */
-@-moz-document url-prefix() {
-  .split {
-    padding-top: 7vw;      
-  }
 }
 
 .split span {
@@ -700,7 +696,7 @@ figure {
 /* Small screens */
 @media (max-width:560px) {
   #back-to-top-container {
-    margin: var(--spacing-large) 0;
+    margin: var(--spacing-small) 0 44%;
     display: flex;
     justify-content: center;
   }
@@ -714,8 +710,20 @@ figure {
   	top: 1.6vw;
   	z-index: 2;
   }
+  .back-to-top {
+    padding: 60px 30px 0;
+    background-size: 30px;
+  }
   .back-to-top:hover {
     transform: translateY(-0.4vw);
+  }
+}
+
+/* Desktop larger */
+@media (min-width:1300px) {
+  .back-to-top {
+    padding: 80px 40px 0;
+    background-size: auto;
   }
 }
 
@@ -830,6 +838,42 @@ figure {
 
 /* ========================================
 
+  FIREFOX
+
+=========================================== */
+
+
+/* Because Firefox renders text baseline or vertical alignment differently, the letters are sitting higher in the text containing block */
+
+@-moz-document url-prefix() {
+  
+  .split {
+    /* Pushing 'Pies' letters-in down */
+    padding-top: 7vw;      
+  }
+  
+  a:not(#filters a) span {
+    /* Adjusting the span/icon position in anchor links */
+    top: 0.1em;
+  }
+  
+  nav .fixed button,
+  nav .fixed ul {
+    /* Pushing the desktop category button and ul down */
+    padding: 0.45em 1em 0.35em;
+  }
+  
+  nav .fixed .label::before {
+    /* That ^ padding also required adjusting the icon position */
+    top: 0.68em;
+  }
+
+}
+
+
+
+/* ========================================
+
   SMALL SCREENS
 
 =========================================== */
@@ -837,26 +881,47 @@ figure {
 
 @media (max-width:560px) {
   
+  
+  
+  /* -------- Redefining variables */
+  
   :root {
-    /* Device widths */
+    /* Spacing */
+    --spacing-large: 32%;
+    --spacing-medium: 20%;
+    --spacing-small: 12%; /* 12% / 7.7vw */
+    --spacing-xsmall: 6%; /* 6% / 5.38vw */
+    /* Widths */
+    --page-container: 90%;
+    /* --device-width-full: 100%; */
     --device-width-large: 75%;
     --device-width-small: 65%;
   }
   
-  .page-container {
-    width: 90%;
+  /* -------- Page, Sections */
+
+  header {
+    margin-bottom: var(--spacing-xsmall);
   }
 
+  h3 {
+    display: block;
+    font-size: var(--text-display-mobile);
+    color: var(--color-secondary);
+    letter-spacing: var(--letter-spacing-tightest);
+  }
 
-
-
-
-
+  nav {
+    margin: 0;
+  }
   
   nav > ul {
     display: none;
   }
   
+
+  /* -------- Category filters */
+
   nav .fixed .label {
     position: fixed;
     bottom: 8vh;
@@ -871,7 +936,7 @@ figure {
     align-items: center;
     gap: 0.6em;
     background: var(--color-primary);
-    padding: 0.8em 2em;
+    padding: 0.8em 1.6em;
     border-radius: 2em;
   }
 
@@ -883,7 +948,7 @@ figure {
     content: "";
   }
   
-  .mobile-list-container {
+  .mobile-category-container {
     position: fixed;
     z-index: 3;
     top: 0;
@@ -899,14 +964,14 @@ figure {
     transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 1) 0.1s, height 0s 0.4s, padding 0s 0.4s;
   }
 
-  nav .fixed.nav-open .mobile-list-container {
+  nav .fixed.nav-open .mobile-category-container {
     height: 100dvh; /* Specifically dvh here so the open menu height matches the default or scrolled/collapsed browser states */
-    padding: 26vh 5% 0%;
+    padding: 22vh 5% 0%;
     transform: translateY(0);
     transition: transform 0.4s cubic-bezier(0.8, 0.2, 0.1, 1) 0.0s, height 0s 0s, padding 0s 0s;
   }
 
-  .mobile-list-container img {
+  .mobile-category-container img {
     position: absolute;
     z-index: 3;
     bottom: 8vh;
@@ -921,10 +986,10 @@ figure {
     transition-delay: 0.4s;
   }
   
-  nav .fixed.nav-open .mobile-list-container img {
+  nav .fixed.nav-open .mobile-category-container img {
     transform: translate3d(-50%, 0, 0);
     opacity: 1;
-    transition: transform 0.3s 0.3s, opacity 0.3s 0.3s;
+    transition: transform 0.3s 0.4s, opacity 0.3s 0.4s;
   }
 
   nav .fixed ul {
@@ -936,20 +1001,20 @@ figure {
   nav .fixed.nav-open ul {
     transform: translateY(0);
     opacity: 1;
-    transition: transform 0.3s 0.2s, opacity 0.3s 0.2s;
+    transition: transform 0.3s 0.35s, opacity 0.3s 0.35s;
   }
-
-
-
-
 
   nav .fixed li {
     display: block;
+    margin-bottom: calc(var(--spacing-xsmall) * -0.5);
   }
   
   #filters .fixed a {
-    font-size: var(--text-medium);
+    font-size: var(--text-display-mobile);
     letter-spacing: var(--letter-spacing-tightest);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0;
   }
   
   #filters .fixed a.active {
@@ -962,13 +1027,29 @@ figure {
   }
   
   
+  /* -------- Un-Grid layout, Items */
   
+  #category-collection {
+    justify-content: center;
+  }
   
-  
-  
+  .category-item {
+    width: var(--device-width-large);
+    margin-left: 0;
+  }
   
   :nth-child(4n + 1 of .phone) {
     margin-right: 0;
+  }
+
+  :nth-child(8n + 4 of .phone) {
+    margin-left: 0;
+  }
+  
+  .desktop {
+    width: var(--device-width-full);
+    margin-left: var(--spacing-xsmall);
+    margin-right: var(--spacing-xsmall);
   }
   
   .desktop-container {
@@ -977,14 +1058,32 @@ figure {
   
   .desktop .description {
     width: initial;
+    margin-top: var(--spacing-small);
   }
   
-  #category-content {
-    scroll-margin: 14vh;
+  /* Overriding var value for better spacing */
+  .category-item .description {
+    /* Based on a visual ideal of 24px converted to vw */
+    margin-top: 6.153vw;
   }
 
+
+  /* -------- Page, Sections */
+
+  .letters-in.page-section {
+    margin-top: calc(var(--spacing-small) * -0.6);
+  }
+  
+  .letters-in {
+    font-size: 50vw;
+  }  
+  
   #about {
     width: 100%;
+  }
+  
+  #back-to-top-container {
+    transition: opacity 0.2s 0.6s;
   }
   
 }
