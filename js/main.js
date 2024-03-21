@@ -106,9 +106,10 @@ const invokeOnHistoryStates = () => {
   if (document.querySelector('nav .fixed')) {
     document.querySelector('nav .fixed').classList.add('dismiss');
     setTimeout(() => {
-      document.querySelector('nav .fixed').classList.remove('dismiss');
-      // Also remove the class 'nav-open'
-      document.querySelector('nav .fixed').classList.remove('nav-open');
+      // Remove 'nav-open', 'dismiss' classes
+      document.querySelectorAll('nav .fixed, body').forEach(function(element) {
+        element.classList.remove('nav-open', 'dismiss');
+      });
     }, 100);
   }
 };
@@ -172,7 +173,7 @@ filterLinks.forEach(link => {
 
 if (window.matchMedia("(max-width: 560px)").matches) {
   
-  const button = document.querySelector('header h3');
+  const buttonText = document.querySelector('header h3');
   const observerConfig = {
     attributes: true,
     attributeFilter: ['class'],
@@ -185,19 +186,19 @@ if (window.matchMedia("(max-width: 560px)").matches) {
         const activeAnchor = document.querySelector('nav .fixed a.active');
         if (activeAnchor) {
           // Update button text with new active anchor text
-          button.textContent = activeAnchor.textContent;
+          buttonText.textContent = activeAnchor.textContent;
         }
       }
     }
   };
   
-  const observer = new MutationObserver(observerCallback);
-  observer.observe(document.querySelector('nav .fixed a'), observerConfig);
+  const catObserver = new MutationObserver(observerCallback);
+  catObserver.observe(document.querySelector('nav .fixed a'), observerConfig);
   
   // Set initial button text
   const defaultActiveListItem = document.querySelector('nav .fixed a.active');
   if (defaultActiveListItem) {
-    button.textContent = defaultActiveListItem.textContent;
+    buttonText.textContent = defaultActiveListItem.textContent;
   }
   
 }
@@ -214,7 +215,7 @@ if (window.matchMedia("(max-width: 560px)").matches) {
     elements.forEach(element => {
       element.classList.remove('hide');
     });
-  }, 2400);
+  }, 2000);
 }
 if (window.matchMedia("(min-width: 561px)").matches) {
   setTimeout(() => {
@@ -226,13 +227,10 @@ if (window.matchMedia("(min-width: 561px)").matches) {
 
 /* -------- Add class when intro animation completes */
 
-const animated = document.querySelector('.intro span:nth-child(6)');
-animated.addEventListener('animationend', () => {
-  const thingElements = document.querySelectorAll('.intro span');
-  thingElements.forEach(element => {
+document.querySelector('.intro span:nth-child(6)').addEventListener('animationend', function() {
+  document.querySelectorAll('.intro span').forEach(function(element) {
     element.classList.add('out');
   });
-  console.log("Animation ended");
 });
 
 
@@ -299,12 +297,28 @@ document.querySelectorAll('nav .fixed a').forEach(fixedFilterClose => {
 
 document.querySelectorAll('.qr-container').forEach(iconContainer => {
   iconContainer.addEventListener('click', (event) => {
-    const qrContainer = event.target.closest('figure');
-    if (qrContainer) {
-      qrContainer.classList.toggle('open');
+    if (event.target.closest('figure')) {
+      event.target.closest('figure').classList.toggle('open');
     }
   });
 });
+
+
+/* -------- Preview video - Mobile only */
+
+document.querySelectorAll('.preview').forEach(videoPreviewButton => {
+    videoPreviewButton.addEventListener('click', function() {
+        this.nextElementSibling.play();
+        this.classList.add('playing');
+    });
+});
+
+document.querySelectorAll('video').forEach(videoPreview => {
+    videoPreview.addEventListener('ended', function() {
+        this.previousElementSibling.classList.remove('playing');
+    });
+});
+
 
 
 /* -------- Back to top */
@@ -313,20 +327,16 @@ document.querySelector('.back-to-top').addEventListener('click', () => {
   const duration = 1600;
   const start = window.scrollY;
   const startTime = performance.now();
-  function animateScroll(currentTime) {
+  const animateScroll = (currentTime) => {
     const elapsedTime = currentTime - startTime;
     const progress = Math.min(elapsedTime / duration, 1);
-    const ease = easeInOutCubic(progress);
-    window.scrollTo(0, start * (1 - ease));
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    }
-  }
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t ** 3 : 1 - (2 * (1 - t)) ** 3 / 2;
-  }
+    const ease = (t) => (t < 0.5 ? 4 * t ** 3 : 1 - (2 * (1 - t)) ** 3 / 2);
+    window.scrollTo(0, start * (1 - ease(progress)));
+    if (progress < 1) requestAnimationFrame(animateScroll);
+  };
   requestAnimationFrame(animateScroll);
 });
+
 
 
 
@@ -346,7 +356,7 @@ const videoPausePlay = new IntersectionObserver(
       if (entry.isIntersecting) {
         // Got a 'play() request was interrupted by a new load request' error. Possibly a result of the video file(s) not being loaded at the exact time of the play() function and thus cannot start immediately, or due to being tied to an IO for play/pause and already being visible in the viewport plus a race between play() and pause() which are asynchronous. Idk but offsetting play() and pause() works.
         setTimeout(() => {
-         // entry.target.play();
+         entry.target.play();
         }, 100);
         //console.log("Vid playing");
       }
@@ -381,20 +391,14 @@ navObserver.observe(navElement);
 /* -------- Trigger .split animation on scroll */
 
 const splitElement = document.querySelector('.letters-in > div');
-// Setting rootMargin based on screen size
-// Desktop
-const optionsSplit = { rootMargin: '0% 0% 10% 0%' };
-// Mobile
-if (window.matchMedia("(max-width: 560px)").matches) {
-  optionsSplit.rootMargin = "0% 0% 30% 0%";
-}
 const splitObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('split');
     }
   });
-}, optionsSplit
+},
+  { rootMargin: '0% 0% -10% 0%' }
 );
 splitObserver.observe(splitElement);
 
