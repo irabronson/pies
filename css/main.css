@@ -35,7 +35,7 @@ li {
 
 video,
 img {
-  width: 100%;
+  width: 100.2%; /* .2 to account for the subpixel void at the edge of the container at various/random/fluid browser widths. It's all computational math. */
   height: auto;
   vertical-align: middle;
 }
@@ -114,6 +114,7 @@ h2 {
 }
 
 #filters *,
+button.preview,
 .description a,
 #download *,
 footer p {
@@ -600,6 +601,23 @@ figure {
   margin-left: var(--spacing-large);
 }
 
+/* Covering UI of phone recording */
+.device-block figure::before,
+.device-block figure::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  width: 100%;
+  height: 5%;
+  content: "";  
+}
+
+.device-block figure::after {
+  bottom: 0;
+  top: auto;
+}
 
 /* -------- Device / Desktop */
 
@@ -628,7 +646,7 @@ figure {
 
 /* ========================================
 
-  SECTION-SPECIFIC STYLING (S³)
+  SECTION-SPECIFIC STYLING
 
 =========================================== */
 
@@ -662,12 +680,22 @@ figure {
 
 /* -------- Video preview / Mobile */
 
+@media (min-width:800px) {
+  button.preview {
+    display: none;
+  }
+}
+
 button.preview {
   position: absolute;
+  left: 50%;
+  bottom: 1.2em;
+  transform: translateX(-50%);
   z-index: 3;
-  width: 150px;
-  height: 70px;
-  background: #bbb;
+  padding: 0.8em 2em;
+  border-radius: 3em;
+  background: var(--color-light);
+  color: var(--color-primary);
   opacity: 1;
   transition: opacity 0.1s;
 }
@@ -738,112 +766,6 @@ button.preview.playing {
 }
 
 
-/* -------- QR code - Desktop only */
-
-.qr-container {
-  display: none;
-}
-
-/* Show it if 800 and up */
-
-@media (min-width:800px) {
-
-  .qr-container {
-    display: block;
-    position: absolute;
-    left: 1vw;
-    bottom: 1vw;
-    z-index: 1;
-    width: 42px;
-    height: 42px;
-    background: #fff;
-    border-radius: 4px 4px 4px 2px;
-    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.08));
-    transform-origin: bottom left;
-    transform: scale(1);
-    transition: transform 0.2s;
-    cursor: pointer;
-  }
-  
-  .category-item.phone figure::before,
-  .category-item.phone figure::after {
-    position: absolute;
-    left: calc(1vw + 10px);
-    bottom: calc(1vw + 10px);
-    z-index: 2;
-    width: 22px;
-    height: 22px;
-    content: "";
-    background-size: 22px 22px;
-    transition: transform 0.2s;
-    pointer-events: none;
-  }
-
-  .category-item.phone figure::before {
-    background-image: url('/img/icon-qrcode.svg'); 
-  }
-
-  .category-item.phone figure::after {
-    background-image: url('/img/icon-close-light.svg');
-    transform: scale(0);
-  }
-
-  .qr-img {
-    padding: 15% 15% 22%;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.15s;
-    transform: translateZ(0); /* Need for Safari to display the image properly when scaled */
-  }
-  
-  .open .qr-container {
-    height: auto;
-    transform: scale(4);
-  }
-
-  .category-item.phone figure.open::before {
-    transform: scale(0);
-  }
-  
-  .category-item.phone figure.open::after {
-    transform: scale(1);
-    transition-delay: 0.12s;
-  }
-  
-  .category-item.phone figure.open .qr-img {
-    opacity: 1;
-  }
-
-}
-
-/* Bigger QR image 1200 and up */
-
-@media (min-width:1200px) {
-
-  .open .qr-container {
-    transform: scale(5);
-  }
-
-}
-
-/* Bigger icon 1600 and up */
-
-@media (min-width:1600px) {
-
-  .qr-container {
-    width: 48px;
-    height: 48px;
-    /* border-radius: 8px; */
-  }
-
-  .category-item.phone figure::before,
-  .category-item.phone figure::after {
-    width: 28px;
-    height: 28px;
-    background-size: 28px 28px;
-  }
-
-}
 
 
 /* ========================================

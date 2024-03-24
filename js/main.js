@@ -316,6 +316,7 @@ document.querySelectorAll('.preview').forEach(videoPreviewButton => {
 document.querySelectorAll('video').forEach(videoPreview => {
     videoPreview.addEventListener('ended', function() {
         this.previousElementSibling.classList.remove('playing');
+        this.currentTime = 0; // Reset video to beginning
     });
 });
 
@@ -340,37 +341,117 @@ document.querySelector('.back-to-top').addEventListener('click', () => {
 
 
 
+
+
+
+
+
 /* ========================================
 
-  INTERSECTION OBSERVERS
+  FEATURES
 
 =========================================== */
 
 
 /* -------- Pause/play videos when out/in viewport */
 
-const videos = document.querySelectorAll("figure video");
-const videoPausePlay = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Got a 'play() request was interrupted by a new load request' error. Possibly a result of the video file(s) not being loaded at the exact time of the play() function and thus cannot start immediately, or due to being tied to an IO for play/pause and already being visible in the viewport plus a race between play() and pause() which are asynchronous. Idk but offsetting play() and pause() works.
-        setTimeout(() => {
-         entry.target.play();
-        }, 100);
-        //console.log("Vid playing");
-      }
-      else {
-        entry.target.pause();
-        console.log("Vid paused");
-      }
+// Get all video elements
+const videos = document.querySelectorAll('video');
+
+// Function to handle playing or pausing videos
+function handleVideoIntersection(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.play();
+      }, 100);
+      console.log("Vid playing");
+    } else {
+      entry.target.pause();
+      console.log("Vid paused");
+    }
+  });
+}
+
+// Instantiate IntersectionObserver based on window size
+let videoPausePlay;
+
+// Function to instantiate or remove IntersectionObserver based on window size
+function instantiateIntersectionObserver(isLargeScreen) {
+  if (isLargeScreen) {
+    videoPausePlay = new IntersectionObserver(handleVideoIntersection, { rootMargin: "15%" });
+    videos.forEach(element => {
+      videoPausePlay.observe(element);
     });
-  },
-  { rootMargin: "15%" }
-);
-videos.forEach(element => {
-  videoPausePlay.observe(element);
+  } else {
+    // Remove IntersectionObserver if not needed
+    if (videoPausePlay) {
+      videos.forEach(element => {
+        videoPausePlay.unobserve(element);
+      });
+      videoPausePlay = null; // Reset the observer
+    }
+  }
+}
+
+// Add event listener for resize event to dynamically adjust on window resize
+window.addEventListener('resize', () => {
+  const isLargeScreen = window.matchMedia('(min-width: 800px)').matches;
+
+  // Check if the window size has changed and instantiate or remove IntersectionObserver accordingly
+  if (isLargeScreen && !videoPausePlay) {
+    instantiateIntersectionObserver(true);
+  } else if (!isLargeScreen && videoPausePlay) {
+    instantiateIntersectionObserver(false);
+  }
+
+  // Set or remove loop attribute based on window size
+  videos.forEach(video => {
+    if (isLargeScreen) {
+      video.setAttribute('loop', '');
+    } else {
+      video.removeAttribute('loop');
+    }
+  });
 });
+
+// Call the resize event listener initially to apply the logic
+window.dispatchEvent(new Event('resize'));
+
+
+
+
+
+
+
+
+// Select all '.desktop video' elements
+const desktopVideos = document.querySelectorAll('.desktop video');
+
+// Set or rename data attribute based on window size
+desktopVideos.forEach(videoDesktop => {
+  if (window.matchMedia("(min-width: 800px)").matches) {
+    videoDesktop.removeAttribute('data-mobile');
+  } else if (window.matchMedia("(max-width: 799px)").matches) {
+    const mobileDataValue = videoDesktop.getAttribute('data-mobile');
+    videoDesktop.removeAttribute('data-mobile');
+    videoDesktop.setAttribute('data-src', mobileDataValue);
+  }
+});
+
+
+
+
+
+
+
+
+
+/* ========================================
+
+  INTERSECTION OBSERVERS
+
+=========================================== */
 
 
 /* -------- Show/hide filters on scroll */

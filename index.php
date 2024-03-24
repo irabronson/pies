@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Pies &mdash; Unstyled prototype parts for ProtoPie</title>
+    <title>Pies &mdash; Prototype parts for ProtoPie</title>
     <meta name="description" content="A collection of individual unstyled ProtoPie prototypes highlighting a specific interaction or function.">
     <link rel="author" href="/humans.txt" type="text/plain">
     <!-- ========== Allow to conform to mobile screens -->
@@ -55,7 +55,7 @@
       <!-- ========== Header -->
       <header class="page-container">
         <h1 class="animate-in">Pies</h1>
-        <h2 class="animate-in">Unstyled prototype parts for ProtoPie.</h2>
+        <h2 class="animate-in">Prototype parts for ProtoPie.</h2>
         <h3 class="animate-in">All Pies</h3>
       </header>
 
@@ -97,11 +97,8 @@
               <!-- 1-8 -->
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/it-01-poster.webp" data-src="/pie-assets/video/it-01.mp4" width="390" height="844" preload="auto" muted playsinline>
+                  <video class="lazy" poster="/pie-assets/image/it-01-poster.webp" data-src="/pie-assets/video/it-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -113,11 +110,8 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/cs-01-poster.webp" data-src="/pie-assets/video/cs-01.mp4" width="390" height="844" preload="auto" muted playsinline>
+                  <video class="lazy" poster="/pie-assets/image/cs-01-poster.webp" data-src="/pie-assets/video/cs-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -129,12 +123,10 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                    <div class="qr-container">
-                      <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                    </div> <!-- .qr-container -->
-                    <video class="lazy" poster="/pie-assets/image/it-02-poster.webp" data-src="/pie-assets/video/it-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
-                      <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
-                    </video>
+                  <button class="preview" type="button">Preview</button>
+                  <video class="lazy" poster="/pie-assets/image/it-02-poster.webp" data-src="/pie-assets/video/it-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
+                  </video>
                 </figure>
                 <div class="description">
                   <p>Officiis ea sit impedit consequatur nisi repellendus quam vel dolorem.</p>
@@ -144,9 +136,7 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-01-poster.webp" data-src="/pie-assets/video/or-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -159,11 +149,8 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/cs-02-poster.webp" data-src="/pie-assets/video/cs-02.mp4" width="390" height="844" preload="auto" muted playsinline>
+                  <video class="lazy" poster="/pie-assets/image/cs-02-poster.webp" data-src="/pie-assets/video/cs-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -175,9 +162,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-03-poster.webp" data-src="/pie-assets/video/it-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -190,9 +175,7 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-01-poster.webp" data-src="/pie-assets/video/ss-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -205,9 +188,7 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-02-poster.webp" data-src="/pie-assets/video/or-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -225,7 +206,8 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/ss-07-poster.webp" data-src="/pie-assets/video/ss-07-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/ss-07-poster.webp" data-src="/pie-assets/video/ss-07-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-07-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -241,9 +223,7 @@
               <!-- 9-16 -->
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-03-poster.webp" data-src="/pie-assets/video/or-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -256,9 +236,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-03-poster.webp" data-src="/pie-assets/video/cs-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -271,9 +249,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-04-poster.webp" data-src="/pie-assets/video/it-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -286,11 +262,8 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/cs-04-poster.webp" data-src="/pie-assets/video/cs-04.mp4" width="390" height="844" preload="auto" muted playsinline>
+                  <video class="lazy" poster="/pie-assets/image/cs-04-poster.webp" data-src="/pie-assets/video/cs-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -302,9 +275,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-05-poster.webp" data-src="/pie-assets/video/it-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -315,11 +286,9 @@
                 </div>
               </div>
 
-              <div class="category-item phone other">
+              <div class="category-item phone other device-block">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-04-poster.webp" data-src="/pie-assets/video/or-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -332,9 +301,7 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-02-poster.webp" data-src="/pie-assets/video/ss-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -347,11 +314,8 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/cs-05-poster.webp" data-src="/pie-assets/video/cs-05.mp4" width="390" height="844" preload="auto" muted playsinline>
+                  <video class="lazy" poster="/pie-assets/image/cs-05-poster.webp" data-src="/pie-assets/video/cs-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -368,7 +332,8 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/or-08-poster.webp" data-src="/pie-assets/video/or-08-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/or-08-poster.webp" data-src="/pie-assets/video/or-08-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-08-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -382,7 +347,8 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/ss-08-poster.webp" data-src="/pie-assets/video/ss-08-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/ss-08-poster.webp" data-src="/pie-assets/video/ss-08-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-08-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -398,9 +364,7 @@
               <!-- 17-24 -->
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-06-poster.webp" data-src="/pie-assets/video/cs-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -413,9 +377,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-06-poster.webp" data-src="/pie-assets/video/it-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -428,9 +390,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-07-poster.webp" data-src="/pie-assets/video/it-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -443,9 +403,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-07-poster.webp" data-src="/pie-assets/video/cs-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -458,9 +416,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-08-poster.webp" data-src="/pie-assets/video/it-08.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -473,9 +429,7 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-03-poster.webp" data-src="/pie-assets/video/ss-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -488,9 +442,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-08-poster.webp" data-src="/pie-assets/video/cs-08.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -503,9 +455,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-09-poster.webp" data-src="/pie-assets/video/it-09.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -523,7 +473,8 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/ss-09-poster.webp" data-src="/pie-assets/video/ss-09-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/ss-09-poster.webp" data-src="/pie-assets/video/ss-09-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-09-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -537,7 +488,8 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/or-09-poster.webp" data-src="/pie-assets/video/or-09-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/or-09-poster.webp" data-src="/pie-assets/video/or-09-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-09-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -553,9 +505,7 @@
               <!-- 25-32 -->
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-05-poster.webp" data-src="/pie-assets/video/or-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -568,9 +518,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-09-poster.webp" data-src="/pie-assets/video/cs-09.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -583,9 +531,7 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-04-poster.webp" data-src="/pie-assets/video/ss-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -598,9 +544,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-10-poster.webp" data-src="/pie-assets/video/cs-10.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -613,9 +557,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-10-poster.webp" data-src="/pie-assets/video/it-10.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -628,24 +570,20 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-06-poster.webp" data-src="/pie-assets/video/or-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Officiis ea sit impedit consequatur nisi repellendus quam vel dolorem.</p>
+                  <p>Use absolute value to toggle between two states with a single Assign.</p>
                   <a href="" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-05-poster.webp" data-src="/pie-assets/video/ss-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -658,11 +596,8 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
                   <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/cs-11-poster.webp" data-src="/pie-assets/video/cs-11.mp4" width="390" height="844" preload="auto" muted playsinline> <!-- I removed 'loop' -->
+                  <video class="lazy" poster="/pie-assets/image/cs-11-poster.webp" data-src="/pie-assets/video/cs-11.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
@@ -679,7 +614,8 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/or-10-poster.webp" data-src="/pie-assets/video/or-10-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/or-10-poster.webp" data-src="/pie-assets/video/or-10-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-10-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -693,7 +629,8 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/ss-10-poster.webp" data-src="/pie-assets/video/ss-10-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/ss-10-poster.webp" data-src="/pie-assets/video/ss-10-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-10-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -710,9 +647,7 @@
               <!-- 33-39 -->
               <div class="category-item phone other">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-07-poster.webp" data-src="/pie-assets/video/or-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -725,9 +660,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-11-poster.webp" data-src="/pie-assets/video/it-11.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -740,9 +673,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-12-poster.webp" data-src="/pie-assets/video/cs-12.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -755,9 +686,7 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-06-poster.webp" data-src="/pie-assets/video/ss-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -770,9 +699,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-12-poster.webp" data-src="/pie-assets/video/it-12.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -785,9 +712,7 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/cs-13-poster.webp" data-src="/pie-assets/video/cs-13.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -800,9 +725,7 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <div class="qr-container">
-                    <img class="qr-img" src="/pie-assets/image/qr-placeholder.webp" title="Scan QR code to use this Pie" alt="QR code with dense pattern of black and white squares" width="148" height="148">
-                  </div> <!-- .qr-container -->
+                  <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/it-13-poster.webp" data-src="/pie-assets/video/it-13.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -820,7 +743,8 @@
               <div class="category-item desktop other">
                 <div class="desktop-container right">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/or-11-poster.webp" data-src="/pie-assets/video/or-11-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/or-11-poster.webp" data-src="/pie-assets/video/or-11-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-11-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
@@ -834,7 +758,8 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <video class="lazy" poster="/pie-assets/image/or-12-poster.webp" data-src="/pie-assets/video/or-12-desktop.mp4" width="960" height="640" preload="auto" muted playsinline loop>
+                    <button class="preview" type="button">Preview</button>
+                    <video class="lazy" poster="/pie-assets/image/or-12-poster.webp" data-src="/pie-assets/video/or-12-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-12-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
