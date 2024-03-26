@@ -2,13 +2,12 @@
 
 
 
-
-	 ___               
-	|   |___________   
-	|   \_  __ \__  \  
-	|   ||  | \// __ \_
-	|___||__|  (____  /
-	                \/ 
+__________.__               
+\______   \__| ____   ______
+ |     ___/  |/ __ \ /  ___/
+ |    |   |  \  ___/ \___ \ 
+ |____|   |__|\___  >____  >
+                  \/     \/ 
 
 	Ira Bronson
 	- Designer and developer
@@ -23,14 +22,13 @@
 
 	SUPPORT
 
-	Swans
-	Dalek
-	Pom Pom Squad
-	Pentagram
-	Helms Alee
-	Bowie
+	Pete Swan
+	Chelsea Wolfe
+	deadmau5
+	Fates Warning
+	Love/Hate
 	Lord Mantis
-	Tropical Fuck Storm
+	Portal
 
 
 
@@ -40,8 +38,8 @@
 
 	SITE
 
-	HTML5
-	CSS3
+	HTML
+	CSS
 	PHP
 	JavaScript
 

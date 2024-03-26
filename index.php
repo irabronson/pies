@@ -92,7 +92,6 @@
           <div id="category-content" class="all">
             <div id="category-collection">
 
-
               <!-- Phone -->
               <!-- 1-8 -->
               <div class="category-item phone inputs-text">
@@ -121,19 +120,6 @@
                 </div>
               </div>
 
-              <div class="category-item phone inputs-text">
-                <figure>
-                  <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/it-02-poster.webp" data-src="/pie-assets/video/it-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
-                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
-                  </video>
-                </figure>
-                <div class="description">
-                  <p>Value verification with auto-focus (multi and single input field).</p>
-                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=534b9003-0abb-4016-ba2a-d7d08cbe520c" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
-                </div>
-              </div>
-
               <div class="category-item phone other">
                 <figure>
                   <button class="preview" type="button">Preview</button>
@@ -144,6 +130,19 @@
                 <div class="description">
                   <p>Swipey carousel selector with associated content.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=c22fb2a3-9347-476e-9919-ff2a229a16dc" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
+                </div>
+              </div>
+
+              <div class="category-item phone inputs-text">
+                <figure>
+                  <button class="preview" type="button">Preview</button>
+                  <video class="lazy" poster="/pie-assets/image/it-02-poster.webp" data-src="/pie-assets/video/it-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
+                  </video>
+                </figure>
+                <div class="description">
+                  <p>Value verification with auto-focus (multi and single input field).</p>
+                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=534b9003-0abb-4016-ba2a-d7d08cbe520c" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
@@ -186,7 +185,20 @@
                 </div>
               </div>
 
-              <div class="category-item phone other">
+              <div class="category-item phone scrolly-stuff">
+                <figure>
+                  <button class="preview" type="button">Preview</button>
+                  <video class="lazy" poster="/pie-assets/image/ss-04-poster.webp" data-src="/pie-assets/video/ss-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
+                  </video>
+                </figure>
+                <div class="description">
+                  <p>Dynamic header position based on scroll direction.</p>
+                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=6301723e-4d56-42dc-9812-ea37d84daefe" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
+                </div>
+              </div>
+
+              <!-- <div class="category-item phone other">
                 <figure>
                   <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-02-poster.webp" data-src="/pie-assets/video/or-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
@@ -197,9 +209,7 @@
                   <p>Fullscreen expandable CTA regardless of position, with <i>z-index</i> reordering to place element on top.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=8a1e1ef0-499a-4630-bb4a-48c36890ddbd" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
-              </div>
-
-
+              </div> -->
 
               <!-- Desktop -->
               <!-- 1 -->
@@ -217,7 +227,6 @@
                   </div>
                 </div>
               </div>
-
 
               <!-- Phone -->
               <!-- 9-16 -->
@@ -286,7 +295,7 @@
                 </div>
               </div>
 
-              <div class="category-item phone other device-block">
+              <div class="category-item phone other">
                 <figure>
                   <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/or-04-poster.webp" data-src="/pie-assets/video/or-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
@@ -294,7 +303,7 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Native camera with photo display.</p>
+                  <p>Native device camera with photo display.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=dd0427e8-97dd-45b1-8e1c-6714fb22ec9f" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
@@ -324,8 +333,6 @@
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=2bbb3b34-6960-480c-8089-6f893f4f2d34" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
-
-
 
               <!-- Desktop -->
               <!-- 2-3 -->
@@ -358,7 +365,6 @@
                   </div>
                 </div>
               </div>
-
 
               <!-- Phone -->
               <!-- 17-24 -->
@@ -466,8 +472,6 @@
                 </div>
               </div>
 
-
-
               <!-- Desktop -->
               <!-- 4-5 -->
               <div class="category-item desktop scrolly-stuff">
@@ -500,7 +504,6 @@
                 </div>
               </div>
 
-
               <!-- Phone -->
               <!-- 25-32 -->
               <div class="category-item phone other">
@@ -529,7 +532,20 @@
                 </div>
               </div>
 
-              <div class="category-item phone scrolly-stuff">
+              <div class="category-item phone other">
+                <figure>
+                  <button class="preview" type="button">Preview</button>
+                  <video class="lazy" poster="/pie-assets/image/or-02-poster.webp" data-src="/pie-assets/video/or-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
+                  </video>
+                </figure>
+                <div class="description">
+                  <p>Fullscreen expandable CTA regardless of position, with <i>z-index</i> reordering to place element on top.</p>
+                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=8a1e1ef0-499a-4630-bb4a-48c36890ddbd" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
+                </div>
+              </div>
+
+              <!-- <div class="category-item phone scrolly-stuff">
                 <figure>
                   <button class="preview" type="button">Preview</button>
                   <video class="lazy" poster="/pie-assets/image/ss-04-poster.webp" data-src="/pie-assets/video/ss-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
@@ -540,7 +556,7 @@
                   <p>Dynamic header position based on scroll direction.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=6301723e-4d56-42dc-9812-ea37d84daefe" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
-              </div>
+              </div> -->
 
               <div class="category-item phone controls">
                 <figure>
@@ -607,8 +623,6 @@
                 </div>
               </div>
 
-
-
               <!-- Desktop -->
               <!-- 6-7 -->
               <div class="category-item desktop other">
@@ -640,8 +654,6 @@
                   </div>
                 </div>
               </div>
-
-
 
               <!-- Phone -->
               <!-- 33-39 -->
@@ -731,12 +743,10 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Text in a variable <em>again</em>, but revealed by character via the dimensions of an element.</p>
+                  <p>Text in a variable <em>again</em>, but revealed by character via the properties of an element.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=25cf9f94-8dcb-4062-87e5-41a4306a45ab" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
-
-
 
               <!-- Desktop -->
               <!-- 8-9 -->
@@ -769,9 +779,6 @@
                   </div>
                 </div>
               </div>
-
-
-
   
             </div> <!-- #category-collection -->
           </div> <!-- #category-content -->

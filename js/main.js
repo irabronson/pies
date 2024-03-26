@@ -1,8 +1,8 @@
-/* ========================================
+/* =============================================
 
   CATEGORY FILTERS, URL UPDATE, HISTORY STATES
 
-=========================================== */
+================================================ */
 
 
 // Add click event listeners to filter links
@@ -160,101 +160,19 @@ filterLinks.forEach(link => {
 });
 
 
+/* -------- Show/hide filters on scroll */
 
-/* ========================================
-
-  INTERACTIONS
-
-=========================================== */
-
-
-
-/* -------- Update button text based on active category - Mobile only */
-
-if (window.matchMedia("(max-width: 560px)").matches) {
-  
-  const buttonText = document.querySelector('header h3');
-  const observerConfig = {
-    attributes: true,
-    attributeFilter: ['class'],
-    attributeOldValue: true,
-  };
-  
-  const observerCallback = function(mutationsList) {
-    for (let mutation of mutationsList) {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        const activeAnchor = document.querySelector('nav .fixed a.active');
-        if (activeAnchor) {
-          // Update button text with new active anchor text
-          buttonText.textContent = activeAnchor.textContent;
-        }
-      }
+const navElement = document.querySelector('nav');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('hidden');
+    } else {
+      entry.target.classList.add('hidden');
     }
-  };
-  
-  const catObserver = new MutationObserver(observerCallback);
-  catObserver.observe(document.querySelector('nav .fixed a'), observerConfig);
-  
-  // Set initial button text
-  const defaultActiveListItem = document.querySelector('nav .fixed a.active');
-  if (defaultActiveListItem) {
-    buttonText.textContent = defaultActiveListItem.textContent;
-  }
-  
-}
-
-/* -------- Hide and reveal any elements on intro animation */
-/* e.g. Filters and back to top */
-
-const elements = document.querySelectorAll('.start');
-elements.forEach(element => {
-  element.classList.add('hide');
-});
-if (window.matchMedia("(max-width: 560px)").matches) {
-  setTimeout(() => {
-    elements.forEach(element => {
-      element.classList.remove('hide');
-    });
-  }, 2000);
-}
-if (window.matchMedia("(min-width: 561px)").matches) {
-  setTimeout(() => {
-    elements.forEach(element => {
-      element.classList.remove('hide');
-    });
-  }, 2800);
-}
-
-/* -------- Add class when intro animation completes */
-
-document.querySelector('.intro span:nth-child(6)').addEventListener('animationend', function() {
-  document.querySelectorAll('.intro span').forEach(function(element) {
-    element.classList.add('out');
   });
 });
-
-
-/* -------- Scroll to category (top of page) */
-
-document.querySelectorAll('nav .fixed a').forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault();
-    setTimeout(() => {
-      window.scrollTo({ top: 0 });
-    }, 40); // Give it time so no content visible on exit
-  });
-});
-
-
-/* -------- Reset .letters-in element on new category selection */
-
-document.querySelectorAll('nav a').forEach(resetLettersIn => {
-  resetLettersIn.addEventListener('click', (event) => {
-    setTimeout(() => {
-      document.querySelector('.letters-in > div').classList.remove('split');
-    }, 100);
-  });
-});
+navObserver.observe(navElement);
 
 
 /* -------- Fire actions via filter and nav links */
@@ -293,64 +211,60 @@ document.querySelectorAll('nav .fixed a').forEach(fixedFilterClose => {
 });
 
 
-/* -------- Toggle 'open' class for QR code */
+/* -------- Scroll to category (top of page) */
 
-document.querySelectorAll('.qr-container').forEach(iconContainer => {
-  iconContainer.addEventListener('click', (event) => {
-    if (event.target.closest('figure')) {
-      event.target.closest('figure').classList.toggle('open');
-    }
+document.querySelectorAll('nav .fixed a').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 40); // Give it time so no content visible on exit
   });
 });
 
 
-/* -------- Preview video - Mobile only */
+/* -------- Update heading text based on active category - Mobile only */
 
-document.querySelectorAll('.preview').forEach(videoPreviewButton => {
-    videoPreviewButton.addEventListener('click', function() {
-        this.nextElementSibling.play();
-        this.classList.add('playing');
-    });
-});
-
-document.querySelectorAll('video').forEach(videoPreview => {
-    videoPreview.addEventListener('ended', function() {
-        this.previousElementSibling.classList.remove('playing');
-        this.currentTime = 0; // Reset video to beginning
-    });
-});
-
-
-
-/* -------- Back to top */
-
-document.querySelector('.back-to-top').addEventListener('click', () => {
-  const duration = 1600;
-  const start = window.scrollY;
-  const startTime = performance.now();
-  const animateScroll = (currentTime) => {
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-    const ease = (t) => (t < 0.5 ? 4 * t ** 3 : 1 - (2 * (1 - t)) ** 3 / 2);
-    window.scrollTo(0, start * (1 - ease(progress)));
-    if (progress < 1) requestAnimationFrame(animateScroll);
+if (window.matchMedia("(max-width: 560px)").matches) {
+  
+  const headingText = document.querySelector('header h3');
+  const observerConfig = {
+    attributes: true,
+    attributeFilter: ['class'],
+    attributeOldValue: true,
   };
-  requestAnimationFrame(animateScroll);
-});
+  
+  const observerCallback = function(mutationsList) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        const activeAnchor = document.querySelector('nav .fixed a.active');
+        if (activeAnchor) {
+          // Update heading text with new active anchor text
+          headingText.textContent = activeAnchor.textContent;
+        }
+      }
+    }
+  };
+  
+  const catObserver = new MutationObserver(observerCallback);
+  catObserver.observe(document.querySelector('nav .fixed a'), observerConfig);
+  
+  // Set initial heading text
+  const defaultActiveListItem = document.querySelector('nav .fixed a.active');
+  if (defaultActiveListItem) {
+    headingText.textContent = defaultActiveListItem.textContent;
+  }
+  
+}
 
 
 
 
+/* =============================================
 
+  VIDEO PLAY / PAUSE / PREVIEW
 
-
-
-
-/* ========================================
-
-  FEATURES
-
-=========================================== */
+================================================ */
 
 
 /* -------- Pause/play videos when out/in viewport */
@@ -419,57 +333,65 @@ window.addEventListener('resize', () => {
 window.dispatchEvent(new Event('resize'));
 
 
+/* -------- Preview video - Mobile only */
 
+document.querySelectorAll('.preview').forEach(videoPreviewButton => {
+    videoPreviewButton.addEventListener('click', function() {
+        this.nextElementSibling.play();
+        this.classList.add('playing');
+    });
+});
 
-
-
-
-
-// Select all '.desktop video' elements
-const desktopVideos = document.querySelectorAll('.desktop video');
-
-// Set or rename data attribute based on window size
-desktopVideos.forEach(videoDesktop => {
-  if (window.matchMedia("(min-width: 800px)").matches) {
-    videoDesktop.removeAttribute('data-mobile');
-  } else if (window.matchMedia("(max-width: 799px)").matches) {
-    const mobileDataValue = videoDesktop.getAttribute('data-mobile');
-    videoDesktop.removeAttribute('data-mobile');
-    videoDesktop.setAttribute('data-src', mobileDataValue);
-  }
+document.querySelectorAll('video').forEach(videoPreview => {
+    videoPreview.addEventListener('ended', function() {
+        this.previousElementSibling.classList.remove('playing');
+        this.currentTime = 0; // Reset video to beginning
+    });
 });
 
 
 
 
+/* =============================================
+
+  ANIMATIONS
+
+================================================ */
 
 
+/* -------- Hide and reveal any elements on intro animation */
+/* e.g. Filters and back to top */
+
+const elements = document.querySelectorAll('.start');
+elements.forEach(element => {
+  element.classList.add('hide');
+});
+if (window.matchMedia("(max-width: 560px)").matches) {
+  setTimeout(() => {
+    elements.forEach(element => {
+      element.classList.remove('hide');
+    });
+  }, 2000);
+}
+if (window.matchMedia("(min-width: 561px)").matches) {
+  setTimeout(() => {
+    elements.forEach(element => {
+      element.classList.remove('hide');
+    });
+  }, 2800);
+}
 
 
+/* -------- Add class when intro animation completes */
 
-/* ========================================
-
-  INTERSECTION OBSERVERS
-
-=========================================== */
-
-
-/* -------- Show/hide filters on scroll */
-
-const navElement = document.querySelector('nav');
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.remove('hidden');
-    } else {
-      entry.target.classList.add('hidden');
-    }
+document.querySelector('.intro span:nth-child(6)').addEventListener('animationend', function() {
+  document.querySelectorAll('.intro span').forEach(function(element) {
+    element.classList.add('out');
   });
 });
-navObserver.observe(navElement);
 
 
-/* -------- Trigger .split animation on scroll */
+/* -------- Trigger .letters-in animation on scroll */
 
 const splitElement = document.querySelector('.letters-in > div');
 const splitObserver = new IntersectionObserver((entries) => {
@@ -484,7 +406,27 @@ const splitObserver = new IntersectionObserver((entries) => {
 splitObserver.observe(splitElement);
 
 
-/* -------- Back to top trigger */
+/* -------- Reset .letters-in animation on new category selection */
+
+document.querySelectorAll('nav a').forEach(resetLettersIn => {
+  resetLettersIn.addEventListener('click', (event) => {
+    setTimeout(() => {
+      document.querySelector('.letters-in > div').classList.remove('split');
+    }, 100);
+  });
+});
+
+
+
+
+/* =============================================
+
+  BACK TO TOP
+
+================================================ */
+
+
+/* -------- Show / hide via scroll position */
 
 const backToTop = document.getElementById('category-content');
 const bodyBackToTop = document.querySelector('.back-to-top');
@@ -502,13 +444,50 @@ const observerBackToTop = new IntersectionObserver(
 observerBackToTop.observe(backToTop);
 
 
+/* -------- Scroll to top and animate */
 
-/* ========================================
+document.querySelector('.back-to-top').addEventListener('click', () => {
+  const duration = 1600;
+  const start = window.scrollY;
+  const startTime = performance.now();
+  const animateScroll = (currentTime) => {
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+    const ease = (t) => (t < 0.5 ? 4 * t ** 3 : 1 - (2 * (1 - t)) ** 3 / 2);
+    window.scrollTo(0, start * (1 - ease(progress)));
+    if (progress < 1) requestAnimationFrame(animateScroll);
+  };
+  requestAnimationFrame(animateScroll);
+});
+
+
+
+
+/* =============================================
 
   LAZY LOAD VIDEOS
 
-=========================================== */
+================================================ */
 
+
+/* -------- Configure data attributes for serving small or large videos based on screen size */
+
+// Select all '.desktop video' elements
+const desktopVideos = document.querySelectorAll('.desktop video');
+
+// Set or rename data attribute based on window size
+desktopVideos.forEach(videoDesktop => {
+  if (window.matchMedia("(min-width: 800px)").matches) {
+    videoDesktop.removeAttribute('data-mobile');
+  } else if (window.matchMedia("(max-width: 799px)").matches) {
+    const mobileDataValue = videoDesktop.getAttribute('data-mobile');
+    videoDesktop.removeAttribute('data-mobile');
+    videoDesktop.setAttribute('data-src', mobileDataValue);
+  }
+});
+
+
+/* -------- Detect element and configure data-src */
 
 var lazyLoadInstance = new LazyLoad({
   thresholds: "140%", // maps to rootMargin
