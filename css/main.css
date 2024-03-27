@@ -687,6 +687,16 @@ button.preview.playing {
   opacity: 0;
 }
 
+/* -------- Video sound / Desktop */
+
+button.sound-toggle {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: red;
+  padding: 20px;
+}
 
 /* -------- Back to top */
 

@@ -198,19 +198,6 @@
                 </div>
               </div>
 
-              <!-- <div class="category-item phone other">
-                <figure>
-                  <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/or-02-poster.webp" data-src="/pie-assets/video/or-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
-                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
-                  </video>
-                </figure>
-                <div class="description">
-                  <p>Fullscreen expandable CTA regardless of position, with <i>z-index</i> reordering to place element on top.</p>
-                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=8a1e1ef0-499a-4630-bb4a-48c36890ddbd" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
-                </div>
-              </div> -->
-
               <!-- Desktop -->
               <!-- 1 -->
               <div class="category-item desktop scrolly-stuff">
@@ -275,6 +262,7 @@
                   <video class="lazy" poster="/pie-assets/image/cs-04-poster.webp" data-src="/pie-assets/video/cs-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
+                  <button class="sound-toggle" title="Toggle sound on and off for this video">Sound<img src="" width="20" height="20" alt="Icon depicting if sound is on or off"></button>
                 </figure>
                 <div class="description">
                   <p>Audio playback and volume control.</p>
@@ -545,19 +533,6 @@
                 </div>
               </div>
 
-              <!-- <div class="category-item phone scrolly-stuff">
-                <figure>
-                  <button class="preview" type="button">Preview</button>
-                  <video class="lazy" poster="/pie-assets/image/ss-04-poster.webp" data-src="/pie-assets/video/ss-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
-                    <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
-                  </video>
-                </figure>
-                <div class="description">
-                  <p>Dynamic header position based on scroll direction.</p>
-                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=6301723e-4d56-42dc-9812-ea37d84daefe" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
-                </div>
-              </div> -->
-
               <div class="category-item phone controls">
                 <figure>
                   <button class="preview" type="button">Preview</button>
@@ -689,6 +664,7 @@
                   <video class="lazy" poster="/pie-assets/image/cs-12-poster.webp" data-src="/pie-assets/video/cs-12.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
+                  <button class="sound-toggle" title="Toggle sound on and off for this video">Sound<img src="" width="20" height="20" alt="Icon depicting if sound is on or off"></button>
                 </figure>
                 <div class="description">
                   <p>Audio playback time/progress represented two ways, with seek.</p>
@@ -774,7 +750,7 @@
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Infinite loop. You ever try this without recalculating the speed for <i>mouseout</i>?</p>
+                    <p>Infinite loop with pause on hover. You ever try this without recalculating the speed for <i>mouseout</i>?</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=339c5dc7-a6e7-424a-b58d-7b39837b31cf" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>

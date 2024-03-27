@@ -262,63 +262,59 @@ if (window.matchMedia("(max-width: 560px)").matches) {
 
 /* =============================================
 
-  VIDEO PLAY / PAUSE / PREVIEW
+  VIDEO PLAY / PREVIEW / SOUND
 
 ================================================ */
 
 
-/* -------- Pause/play videos when out/in viewport */
+/* -------- Play/pause/mute videos when in/out viewport */
 
 // Get all video elements
 const videos = document.querySelectorAll('video');
 
-// Function to handle playing or pausing videos
-function handleVideoIntersection(entries) {
+// Function to handle play/pause based on viewport visibility for screens 800px and up
+function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.play();
-      }, 100);
-      console.log("Vid playing");
-    } else {
-      entry.target.pause();
-      console.log("Vid paused");
+    const video = entry.target;
+    if (window.matchMedia('(min-width: 800px)').matches) {
+      if (entry.isIntersecting && video.paused) {
+        setTimeout(() => {
+          video.play();
+        }, 100);
+        console.log("Vid playing");
+      } else {
+        video.pause();
+        console.log("Vid paused");
+      }
     }
   });
 }
 
-// Instantiate IntersectionObserver based on window size
-let videoPausePlay;
-
-// Function to instantiate or remove IntersectionObserver based on window size
-function instantiateIntersectionObserver(isLargeScreen) {
-  if (isLargeScreen) {
-    videoPausePlay = new IntersectionObserver(handleVideoIntersection, { rootMargin: "15%" });
-    videos.forEach(element => {
-      videoPausePlay.observe(element);
-    });
-  } else {
-    // Remove IntersectionObserver if not needed
-    if (videoPausePlay) {
-      videos.forEach(element => {
-        videoPausePlay.unobserve(element);
-      });
-      videoPausePlay = null; // Reset the observer
+// Function to handle muting a video if outside viewport only if sound is currently playing, but do not unmute if in viewport
+function handleSoundIntersection(entries) {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (!entry.isIntersecting) {
+      video.muted = true;
     }
-  }
+  });
 }
+
+// Instantiate IntersectionObserver for play/pause functionality on screens 800px and up
+const playPauseObserver = new IntersectionObserver(handlePlayPauseIntersection, { rootMargin: '15% 0% 15% 0%' });
+videos.forEach(video => {
+  playPauseObserver.observe(video);
+});
+
+// Instantiate IntersectionObserver for muting a video if outside viewport only if sound is currently playing, but do not unmute if in viewport
+const soundMuteObserver = new IntersectionObserver(handleSoundIntersection, { rootMargin: '0%' });
+videos.forEach(video => {
+  soundMuteObserver.observe(video);
+});
 
 // Add event listener for resize event to dynamically adjust on window resize
 window.addEventListener('resize', () => {
   const isLargeScreen = window.matchMedia('(min-width: 800px)').matches;
-
-  // Check if the window size has changed and instantiate or remove IntersectionObserver accordingly
-  if (isLargeScreen && !videoPausePlay) {
-    instantiateIntersectionObserver(true);
-  } else if (!isLargeScreen && videoPausePlay) {
-    instantiateIntersectionObserver(false);
-  }
-
   // Set or remove loop attribute based on window size
   videos.forEach(video => {
     if (isLargeScreen) {
@@ -333,11 +329,23 @@ window.addEventListener('resize', () => {
 window.dispatchEvent(new Event('resize'));
 
 
+/* -------- Toggle sound */
+
+document.querySelectorAll('.sound-toggle').forEach(soundToggleButton => {
+  soundToggleButton.addEventListener('click', function() {
+    const video = this.parentElement.querySelector('video');
+    if (video) {
+      video.muted = !video.muted;
+    }
+  });
+});
+
 /* -------- Preview video - Mobile only */
 
 document.querySelectorAll('.preview').forEach(videoPreviewButton => {
     videoPreviewButton.addEventListener('click', function() {
         this.nextElementSibling.play();
+        this.nextElementSibling.muted = false;
         this.classList.add('playing');
     });
 });
