@@ -277,7 +277,7 @@ function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
     if (window.matchMedia('(min-width: 800px)').matches) {
-      if (entry.isIntersecting && video.paused) {
+      if (entry.isIntersecting) {
         setTimeout(() => {
           video.play();
         }, 100);
@@ -290,12 +290,17 @@ function handlePlayPauseIntersection(entries) {
   });
 }
 
-// Function to handle muting a video if outside viewport only if sound is currently playing, but do not unmute if in viewport
+// Function to handle muting a video if outside viewport
 function handleSoundIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
     if (!entry.isIntersecting) {
       video.muted = true;
+        if (video.previousElementSibling) {
+          video.previousElementSibling.classList.add('sound-off');
+          video.previousElementSibling.classList.remove('sound-on');
+          console.log("Out and off");
+        }
     }
   });
 }
@@ -306,7 +311,7 @@ videos.forEach(video => {
   playPauseObserver.observe(video);
 });
 
-// Instantiate IntersectionObserver for muting a video if outside viewport only if sound is currently playing, but do not unmute if in viewport
+// Instantiate IntersectionObserver for muting a video if outside viewport
 const soundMuteObserver = new IntersectionObserver(handleSoundIntersection, { rootMargin: '0%' });
 videos.forEach(video => {
   soundMuteObserver.observe(video);
@@ -329,32 +334,50 @@ window.addEventListener('resize', () => {
 window.dispatchEvent(new Event('resize'));
 
 
-/* -------- Toggle sound */
 
-document.querySelectorAll('.sound-toggle').forEach(soundToggleButton => {
-  soundToggleButton.addEventListener('click', function() {
-    const video = this.parentElement.querySelector('video');
-    if (video) {
-      video.muted = !video.muted;
+/* -------- Set Preview button and sound toggle states */
+
+const uiContainer = document.querySelectorAll('.ui-container');
+
+uiContainer.forEach(container => {
+  container.addEventListener('click', function() {
+    const video = this.closest('figure').querySelector('video');
+
+    // Toggle sound class and mute/unmute video
+    if (this.classList.contains('sound-off')) {
+      this.classList.remove('sound-off');
+      this.classList.add('sound-on');
+      video.muted = false;
+    } else {
+      this.classList.remove('sound-on');
+      this.classList.add('sound-off');
+      video.muted = true;
+    }
+
+    // If screen width is less than 800px, play the video
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      video.play();
+      this.classList.add('is-playing');
     }
   });
-});
 
-/* -------- Preview video - Mobile only */
+  // When the video ends, remove the class 'is-playing'
+  const video = container.closest('figure').querySelector('video');
+  video.addEventListener('ended', function() {
+    container.classList.remove('is-playing');
+  });
 
-document.querySelectorAll('.preview').forEach(videoPreviewButton => {
-    videoPreviewButton.addEventListener('click', function() {
-        this.nextElementSibling.play();
-        this.nextElementSibling.muted = false;
-        this.classList.add('playing');
+  // If screen width is less than 800px, play the video
+  if (window.matchMedia("(max-width: 800px)").matches) {
+    const video = container.closest('figure').querySelector('video');
+
+    // When the video ends, toggle sound class and reset video time
+    video.addEventListener('ended', function() {
+      container.classList.remove('sound-on');
+      container.classList.add('sound-off');
+      video.currentTime = 0;
     });
-});
-
-document.querySelectorAll('video').forEach(videoPreview => {
-    videoPreview.addEventListener('ended', function() {
-        this.previousElementSibling.classList.remove('playing');
-        this.currentTime = 0; // Reset video to beginning
-    });
+  }
 });
 
 

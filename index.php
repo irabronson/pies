@@ -96,7 +96,9 @@
               <!-- 1-8 -->
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-01-poster.webp" data-src="/pie-assets/video/it-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -109,7 +111,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-01-poster.webp" data-src="/pie-assets/video/cs-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -122,7 +126,9 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-01-poster.webp" data-src="/pie-assets/video/or-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -135,7 +141,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-02-poster.webp" data-src="/pie-assets/video/it-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -148,7 +156,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-02-poster.webp" data-src="/pie-assets/video/cs-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -161,7 +171,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-03-poster.webp" data-src="/pie-assets/video/it-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -174,7 +186,9 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-01-poster.webp" data-src="/pie-assets/video/ss-01.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -187,7 +201,9 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-04-poster.webp" data-src="/pie-assets/video/ss-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -203,7 +219,9 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/ss-07-poster.webp" data-src="/pie-assets/video/ss-07-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-07-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -219,7 +237,9 @@
               <!-- 9-16 -->
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-03-poster.webp" data-src="/pie-assets/video/or-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -232,7 +252,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-03-poster.webp" data-src="/pie-assets/video/cs-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -245,7 +267,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-04-poster.webp" data-src="/pie-assets/video/it-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -258,11 +282,13 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container sound sound-off">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    <button class="sound-toggle" title="Toggle sound on and off for this video"><img src="/img/icon-sound-toggle.svg" width="32" height="32" alt="Icon depicting if sound is on or off"></button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-04-poster.webp" data-src="/pie-assets/video/cs-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
-                  <button class="sound-toggle" title="Toggle sound on and off for this video">Sound<img src="" width="20" height="20" alt="Icon depicting if sound is on or off"></button>
                 </figure>
                 <div class="description">
                   <p>Audio playback and volume control.</p>
@@ -272,7 +298,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-05-poster.webp" data-src="/pie-assets/video/it-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -285,7 +313,9 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-04-poster.webp" data-src="/pie-assets/video/or-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -298,7 +328,9 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-02-poster.webp" data-src="/pie-assets/video/ss-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -311,7 +343,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-05-poster.webp" data-src="/pie-assets/video/cs-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -327,7 +361,9 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/or-08-poster.webp" data-src="/pie-assets/video/or-08-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-08-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -342,7 +378,9 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/ss-08-poster.webp" data-src="/pie-assets/video/ss-08-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-08-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -358,7 +396,9 @@
               <!-- 17-24 -->
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-06-poster.webp" data-src="/pie-assets/video/cs-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -371,7 +411,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-06-poster.webp" data-src="/pie-assets/video/it-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -384,7 +426,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-07-poster.webp" data-src="/pie-assets/video/it-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -397,7 +441,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-07-poster.webp" data-src="/pie-assets/video/cs-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -410,7 +456,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-08-poster.webp" data-src="/pie-assets/video/it-08.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -423,7 +471,9 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-03-poster.webp" data-src="/pie-assets/video/ss-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -436,7 +486,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-08-poster.webp" data-src="/pie-assets/video/cs-08.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -449,7 +501,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-09-poster.webp" data-src="/pie-assets/video/it-09.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -465,7 +519,9 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/ss-09-poster.webp" data-src="/pie-assets/video/ss-09-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-09-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -480,7 +536,9 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/or-09-poster.webp" data-src="/pie-assets/video/or-09-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-09-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -496,7 +554,9 @@
               <!-- 25-32 -->
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-05-poster.webp" data-src="/pie-assets/video/or-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -509,7 +569,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-09-poster.webp" data-src="/pie-assets/video/cs-09.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -522,20 +584,24 @@
 
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-02-poster.webp" data-src="/pie-assets/video/or-02.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Fullscreen expandable CTA regardless of position, with <i>z-index</i> reordering to place element on top.</p>
+                  <p>Fullscreen expandable CTA regardless of position, with z-index reordering to place element on top.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=8a1e1ef0-499a-4630-bb4a-48c36890ddbd" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-10-poster.webp" data-src="/pie-assets/video/cs-10.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -548,33 +614,39 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-10-poster.webp" data-src="/pie-assets/video/it-10.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Search query with dynamically-positioned results. <i>indexOf</i> has done a lot of good in this world.</p>
+                  <p>Search query with dynamically-positioned results. indexOf has done a lot of good in this world.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=7698b3de-c46f-427c-931c-93bc482c31d6" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-06-poster.webp" data-src="/pie-assets/video/or-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>State toggle with absolute value using a single <i>Assign</i> response.</p>
+                  <p>State toggle with absolute value using a single Assign response.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=73390892-6fd1-448e-b654-12ea8e87958c" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-05-poster.webp" data-src="/pie-assets/video/ss-05.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -587,7 +659,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-11-poster.webp" data-src="/pie-assets/video/cs-11.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -603,7 +677,9 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/or-10-poster.webp" data-src="/pie-assets/video/or-10-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-10-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -618,7 +694,9 @@
               <div class="category-item desktop scrolly-stuff">
                 <div class="desktop-container right">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/ss-10-poster.webp" data-src="/pie-assets/video/ss-10-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/ss-10-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
@@ -634,7 +712,9 @@
               <!-- 33-39 -->
               <div class="category-item phone other">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/or-07-poster.webp" data-src="/pie-assets/video/or-07.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -647,7 +727,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-11-poster.webp" data-src="/pie-assets/video/it-11.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -660,11 +742,13 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container sound sound-off">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    <button class="sound-toggle" title="Toggle sound on and off for this video"><img src="/img/icon-sound-toggle.svg" width="28" height="28" alt="Icon depicting if sound is on or off"></button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-12-poster.webp" data-src="/pie-assets/video/cs-12.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
-                  <button class="sound-toggle" title="Toggle sound on and off for this video">Sound<img src="" width="20" height="20" alt="Icon depicting if sound is on or off"></button>
                 </figure>
                 <div class="description">
                   <p>Audio playback time/progress represented two ways, with seek.</p>
@@ -674,7 +758,9 @@
 
               <div class="category-item phone scrolly-stuff">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/ss-06-poster.webp" data-src="/pie-assets/video/ss-06.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -687,7 +773,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-12-poster.webp" data-src="/pie-assets/video/it-12.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -700,7 +788,9 @@
 
               <div class="category-item phone controls">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/cs-13-poster.webp" data-src="/pie-assets/video/cs-13.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -713,7 +803,9 @@
 
               <div class="category-item phone inputs-text">
                 <figure>
-                  <button class="preview" type="button">Preview</button>
+                  <div class="ui-container">
+                    <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                  </div>
                   <video class="lazy" poster="/pie-assets/image/it-13-poster.webp" data-src="/pie-assets/video/it-13.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
@@ -729,13 +821,15 @@
               <div class="category-item desktop other">
                 <div class="desktop-container right">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/or-11-poster.webp" data-src="/pie-assets/video/or-11-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-11-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Mask hover follow with <i>z-index</i> switching.</p>
+                    <p>Mask hover follow with z-index switching.</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=a1e2b5d1-ca04-42a9-932a-4ccc04fc8084" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>
@@ -744,13 +838,15 @@
               <div class="category-item desktop other">
                 <div class="desktop-container">
                   <figure>
-                    <button class="preview" type="button">Preview</button>
+                    <div class="ui-container">
+                      <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
+                    </div>
                     <video class="lazy" poster="/pie-assets/image/or-12-poster.webp" data-src="/pie-assets/video/or-12-desktop.mp4" width="960" height="640" preload="auto" data-mobile="/pie-assets/video/or-12-mobile.mp4" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Infinite loop with pause on hover. You ever try this without recalculating the speed for <i>mouseout</i>?</p>
+                    <p>Infinite loop with pause on hover. You ever try this without recalculating the speed for mouseout?</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=339c5dc7-a6e7-424a-b58d-7b39837b31cf" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>

@@ -114,7 +114,7 @@ h2 {
 }
 
 #filters *,
-button.preview,
+button,
 .description a,
 #download *,
 footer p {
@@ -661,41 +661,95 @@ figure {
 =========================================== */
 
 
-/* -------- Video preview / Mobile */
+/* -------- Video preview / Sound toggle */
 
-@media (min-width:800px) {
-  button.preview {
-    display: none;
-  }
-}
-
-button.preview {
+.ui-container {
   position: absolute;
   left: 50%;
   bottom: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translateX(-50%);
   z-index: 3;
-  padding: 0.8em 2em;
+  width: 65%;
+  height: 72px;
   border-radius: 3em;
   background: var(--color-light);
-  color: var(--color-primary);
   opacity: 1;
-  transition: opacity 0.1s;
+  transition: opacity 0.1s, width 0.1s, border-radius 0.1s;
 }
 
-button.preview.playing {
+.ui-container.is-playing {
+  width: 72px;
+  border-radius: 100%;
+}
+
+.ui-container.is-playing:not(.sound) {
   opacity: 0;
 }
 
-/* -------- Video sound / Desktop */
+button.preview {
+  color: var(--color-primary);
+  scale: 1;
+  transition: scale 0.1s;
+}
+
+.is-playing button.preview {
+  scale: 0;
+}
+
+@media (max-width:799px) {
+  button.sound-toggle {
+    scale: 0;
+    transition: scale 0.1s;
+  }
+}
+
+.is-playing button.sound-toggle {
+  scale: 1;
+}
 
 button.sound-toggle {
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
-  background: red;
-  padding: 20px;
+}
+
+button.sound-toggle img {
+  object-fit: cover;
+  object-position: 0 -32px;
+  width: 32px;
+  height: 32px;
+}
+
+.sound-on button.sound-toggle img {
+  object-position: 0 0;
+}
+
+@media (min-width:800px) {
+  button.sound-toggle img {
+    object-position: 0 -34px;
+  }
+  /* See the Firefox section below for a tweak on these values */
+  .sound-on button.sound-toggle img {
+    object-position: 0 -2px;
+  }
+  button.preview {
+    display: none;
+  }
+  .ui-container:not(.sound) {
+    display: none;
+  }
+  .ui-container {
+    padding: 0;
+    border-radius: 100%;
+    height: clamp(56px, 5vw, 88px);
+    width: clamp(56px, 5vw, 88px);
+    cursor: pointer;  
+  }
+  .ui-container button {
+    cursor: pointer;  
+  }
 }
 
 /* -------- Back to top */
@@ -791,6 +845,13 @@ button.sound-toggle {
   nav .fixed .label::before {
     /* That ^ padding also required adjusting the icon position */
     top: 0.68em;
+  }
+
+  button.sound-toggle img {
+    object-position: 0 -32px;
+  }
+  .sound-on button.sound-toggle img {
+    object-position: 0 0;
   }
 
 }
