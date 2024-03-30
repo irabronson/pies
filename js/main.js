@@ -305,13 +305,13 @@ function handleSoundIntersection(entries) {
   });
 }
 
-// Instantiate IntersectionObserver for play/pause functionality on screens 800px and up
+// Instantiate IntersectionObserver for play/pause on screens 800px and up
 const playPauseObserver = new IntersectionObserver(handlePlayPauseIntersection, { rootMargin: '15% 0% 15% 0%' });
 videos.forEach(video => {
   playPauseObserver.observe(video);
 });
 
-// Instantiate IntersectionObserver for muting a video if outside viewport
+// Instantiate IntersectionObserver for muting video if outside viewport
 const soundMuteObserver = new IntersectionObserver(handleSoundIntersection, { rootMargin: '0%' });
 videos.forEach(video => {
   soundMuteObserver.observe(video);
