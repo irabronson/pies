@@ -17,4 +17,4 @@ jobs:
         server: 173.254.88.148
         username: ${{ secrets.ftp_username_staging }}
         password: ${{ secrets.ftp_password_staging }}
-        server-dir: /public_html/staging-pies
+        server-dir: /public_html/staging-pies/
