@@ -272,7 +272,7 @@ if (window.matchMedia("(max-width: 560px)").matches) {
 // Get all video elements
 const videos = document.querySelectorAll('video');
 
-// Function to handle play/pause based on viewport visibility for screens 800px and up
+// Play/pause for screens 800px and up
 function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
@@ -290,7 +290,7 @@ function handlePlayPauseIntersection(entries) {
   });
 }
 
-// Function to handle muting a video if outside viewport
+// Muting video if outside viewport
 function handleSoundIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
