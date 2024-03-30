@@ -15,6 +15,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: 173.254.88.148
-        username: ${{ secrets.ftp_username_staging }}
-        password: ${{ secrets.ftp_password_staging }}
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
         server-dir: /public_html/staging-pies/
