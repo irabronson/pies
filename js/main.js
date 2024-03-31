@@ -272,7 +272,7 @@ if (window.matchMedia("(max-width: 560px)").matches) {
 // Get all video elements
 const videos = document.querySelectorAll('video');
 
-// Play/pause for screens 800px and up
+// Play/pause for screens gte 800px
 function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
@@ -296,7 +296,7 @@ function handleSoundIntersection(entries) {
     const video = entry.target;
     if (!entry.isIntersecting) {
       video.muted = true;
-        if (video.previousElementSibling) {
+        if (video.previousElementSibling) { // Targeting '.ui-container'
           video.previousElementSibling.classList.add('sound-off');
           video.previousElementSibling.classList.remove('sound-on');
           console.log("Out and off");
@@ -305,7 +305,7 @@ function handleSoundIntersection(entries) {
   });
 }
 
-// Instantiate IntersectionObserver for play/pause on screens 800px and up
+// Instantiate IntersectionObserver for play/pause on screens gte 800px
 const playPauseObserver = new IntersectionObserver(handlePlayPauseIntersection, { rootMargin: '15% 0% 15% 0%' });
 videos.forEach(video => {
   playPauseObserver.observe(video);
@@ -330,7 +330,7 @@ window.addEventListener('resize', () => {
   });
 });
 
-// Call the resize event listener initially to apply the logic
+// Call the resize event listener initially
 window.dispatchEvent(new Event('resize'));
 
 
@@ -354,7 +354,7 @@ uiContainer.forEach(container => {
       video.muted = true;
     }
 
-    // If screen width is less than 800px, play the video
+    // If screen width < 800px, play the video
     if (window.matchMedia("(max-width: 800px)").matches) {
       video.play();
       this.classList.add('is-playing');
@@ -367,11 +367,11 @@ uiContainer.forEach(container => {
     container.classList.remove('is-playing');
   });
 
-  // If screen width is less than 800px, play the video
+  // If screen width < 800px, play the video
   if (window.matchMedia("(max-width: 800px)").matches) {
     const video = container.closest('figure').querySelector('video');
 
-    // When the video ends, toggle sound class and reset video time
+    // When video ends, toggle sound class and reset video time
     video.addEventListener('ended', function() {
       container.classList.remove('sound-on');
       container.classList.add('sound-off');
@@ -521,7 +521,7 @@ desktopVideos.forEach(videoDesktop => {
 /* -------- Detect element and configure data-src */
 
 var lazyLoadInstance = new LazyLoad({
-  thresholds: "140%", // maps to rootMargin
+  thresholds: "140%", // Maps to rootMargin
   callback_enter: (el)=>{console.log("Lazy has entered");}
 });
 lazyLoadInstance.update();

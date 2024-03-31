@@ -245,7 +245,7 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Randomized loader displaying different values each at page load.</p>
+                  <p>Randomized loader displaying different values at each page load.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=7f4ecd0b-2a73-4e9d-a892-e8bbe23586e0" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
@@ -702,7 +702,7 @@
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Reveal text based on "combined" text via scroll.</p>
+                    <p>Text revealed based on "combining" text via scroll.</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=6887603e-18f1-424a-b282-d78f76252233" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>
@@ -871,14 +871,14 @@
     
           <!-- Download -->
           <div id="download" class="page-section">
-            <a href="" download="/pie-assets/pies-02122024.zip" title="Download all Pies">Download all Pies<span></span></a>
-            <p>zip / 82 MB</p>
+            <a href="/downloads/pies-v1-033124.zip" download title="Download all Pies">Download all Pies<span></span></a>
+            <p>zip / 85.1 MB</p>
           </div>
   
           <!-- About -->
           <div id="about" class="page-section">
-            <p>I make these to learn and also to have a collection of isolated functionality for use anywhere. This is also in response to seeing over-designed fully functional app concepts that I’ve never needed.</p>
-            <p>It’s not a component library or design system. Just minimal parts created out of a desire to learn and have pre-built pieces of isolated functionality when doing some dynamic prototyping in ProtoPie; typically things not possible in Figma.</p>
+            <p>What this is and why I did it. Perspiciatis eligendi minus ut ut totam autem inventore ex. Qui velit explicabo harum qui unde voluptate sunt quibusdam porro et saepe.</p>
+            <p>Necessitatibus quo similique eum delectus in quo dolores. Quibusdam numquam eos ipsam maxime et est cumque quasi quos voluptates iusto qui. Vitae vitae ut autem quas doloremque vel est atque voluptas quibusdam sit possimus quod odio et.</p>
             <p>Nisi consequatur aut inventore fugit labore culpa voluptatem incidunt repellendus quis totam praesentium sint reprehenderit quos. Sint quia dolor aliquid aut eum illum officia rem nesciunt ipsam ut omnis et illo.</p>
           </div>
           

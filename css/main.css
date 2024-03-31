@@ -909,7 +909,7 @@ button.sound-toggle img {
 
   nav .fixed .label {
     position: fixed;
-    bottom: 8vh;
+    bottom: 6vh;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -956,7 +956,7 @@ button.sound-toggle img {
   nav .fixed.nav-open .mobile-category-container {
     height: 102dvh;
     /* Specifically dvh here so the open menu height matches the default or scrolled/collapsed browser states */
-    padding: 20dvh 5% 9vh;
+    padding: 20dvh 5% 7vh;
     transform: translateY(-1vh);
     transition: transform 0.4s cubic-bezier(0.8, 0.2, 0.1, 1) 0.0s, height 0s 0s, padding 0s 0s;
   }
