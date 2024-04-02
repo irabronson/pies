@@ -225,7 +225,6 @@ nav {
 }
 
 
-
 /* ========================================
 
   FIXED FILTER INTERACTIONS
@@ -498,7 +497,6 @@ nav .fixed.hide,
 #back-to-top-container {
   transition: opacity 0.2s 0.2s;
 }
-  
 
 /* -------- Letters in / Split elements */
 
@@ -556,7 +554,6 @@ nav .fixed.hide,
 }
 
 
-
 /* ========================================
 
   GRID LAYOUT, ITEMS
@@ -583,7 +580,6 @@ figure {
   overflow: hidden;
   transform: translateZ(0); /* Need for overflow: hidden to work in Safari */
 }
-
 
 /* -------- Device / Phones */
 
@@ -626,7 +622,6 @@ figure {
 }
 
 
-
 /* ========================================
 
   SECTION-SPECIFIC STYLING
@@ -651,7 +646,6 @@ figure {
 #about {
   width: clamp(420px, 32%, 600px);
 }
-
 
 
 /* ========================================
@@ -813,8 +807,6 @@ button.sound-toggle img {
 }
 
 
-
-
 /* ========================================
 
   FIREFOX
@@ -857,7 +849,6 @@ button.sound-toggle img {
 }
 
 
-
 /* ========================================
 
   SMALL SCREENS
@@ -866,8 +857,6 @@ button.sound-toggle img {
 
 
 @media (max-width:560px) {
-  
-  
   
   /* -------- Redefining variables */
   
@@ -903,7 +892,6 @@ button.sound-toggle img {
   nav > ul {
     display: none;
   }
-  
 
   /* -------- Category filters */
 
@@ -1010,7 +998,6 @@ button.sound-toggle img {
     overflow: hidden;
   }
   
-  
   /* -------- Un-Grid layout, Items */
   
   #category-collection {
@@ -1050,7 +1037,6 @@ button.sound-toggle img {
     /* Based on a visual ideal of 24px converted to vw */
     margin-top: 6.153vw;
   }
-
 
   /* -------- Page, Sections */
 

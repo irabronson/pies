@@ -174,13 +174,13 @@
                   <div class="ui-container">
                     <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
                   </div>
-                  <video class="lazy" poster="/pie-assets/image/it-03-poster.webp" data-src="/pie-assets/video/it-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                  <video class="lazy" poster="/pie-assets/image/it-04-poster.webp" data-src="/pie-assets/video/it-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Input autofill via focus or typing any character.</p>
-                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=169fb2c1-f9a4-4391-9caf-63f1d4dd00f6" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
+                  <p>Value and character extraction with custom styling within a single input field.</p>
+                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=b31e51fe-81c9-4c6d-b46d-1a75cc2b4f8a" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
@@ -270,13 +270,13 @@
                   <div class="ui-container">
                     <button class="preview" type="button" title="Play the preview video for this prototype">Preview</button>
                   </div>
-                  <video class="lazy" poster="/pie-assets/image/it-04-poster.webp" data-src="/pie-assets/video/it-04.mp4" width="390" height="844" preload="auto" muted playsinline loop>
+                  <video class="lazy" poster="/pie-assets/image/it-03-poster.webp" data-src="/pie-assets/video/it-03.mp4" width="390" height="844" preload="auto" muted playsinline loop>
                     <p>😞 It looks like your browser does not support embedded videos. You should update to the latest version of Firefox or Chrome.</p>
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Value and character extraction with custom styling within a single input field.</p>
-                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=b31e51fe-81c9-4c6d-b46d-1a75cc2b4f8a" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
+                  <p>Input autofill via focus or typing any character.</p>
+                  <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=169fb2c1-f9a4-4391-9caf-63f1d4dd00f6" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
 
@@ -607,7 +607,7 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Bonus thing. Math with your variables. Don't dine alone (the party UI stops at "2").</p>
+                  <p>Bonus: App concept with math for those that don't dine alone.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=20cfca6f-1db4-4721-a766-683db11b3642" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
@@ -871,15 +871,16 @@
     
           <!-- Download -->
           <div id="download" class="page-section">
-            <a href="/downloads/pies-v1-033124.zip" download title="Download all Pies">Download all Pies<span></span></a>
-            <p>zip / 85.1 MB</p>
+            <a href="/downloads/pies-v1-040124.zip" download title="Download all Pies">Download all Pies<span></span></a>
+            <p>zip / 84.4 MB</p>
           </div>
   
           <!-- About -->
           <div id="about" class="page-section">
-            <p>What this is and why I did it. Perspiciatis eligendi minus ut ut totam autem inventore ex. Qui velit explicabo harum qui unde voluptate sunt quibusdam porro et saepe.</p>
-            <p>Necessitatibus quo similique eum delectus in quo dolores. Quibusdam numquam eos ipsam maxime et est cumque quasi quos voluptates iusto qui. Vitae vitae ut autem quas doloremque vel est atque voluptas quibusdam sit possimus quod odio et.</p>
-            <p>Nisi consequatur aut inventore fugit labore culpa voluptatem incidunt repellendus quis totam praesentium sint reprehenderit quos. Sint quia dolor aliquid aut eum illum officia rem nesciunt ipsam ut omnis et illo.</p>
+            <p>I often build small one-off pieces of isolated functionality when learning or experimenting with features in ProtoPie; unstyled individual interactions and parts that are more like wireframes, not over-designed complete concepts or experiences.</p>
+            <p>With a growing backlog of these, I realized that it would be cool to create a consistent collection that exposes some techniques for others to learn from. It’s not a component library nor is it a design system. It’s a variety of dynamic prototype parts, largely driven by expressions/formulas and variables.</p>
+            <p>For the most part, these are things not possible in Figma, but either way, if you're reaching for ProtoPie for whatever reason, here's how to do stuff.</p>
+            <p></p>
           </div>
           
           <!-- Footer -->
