@@ -737,8 +737,8 @@ button.sound-toggle img {
   .ui-container {
     padding: 0;
     border-radius: 100%;
-    height: clamp(56px, 5vw, 88px);
-    width: clamp(56px, 5vw, 88px);
+    height: clamp(56px, 5vw, 80px);
+    width: clamp(56px, 5vw, 80px);
     cursor: pointer;  
   }
   .ui-container button {
