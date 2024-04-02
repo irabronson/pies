@@ -1,0 +1,1059 @@
+/* ========================================
+
+  BASELINE, RESET
+
+=========================================== */
+
+
+h1,
+h2,
+h3,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit; /* Most form elements don't inherit by default */
+  line-height: inherit;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: var(--color-light);
+}
+
+p {
+  margin: 0 0 1.2em;
+}
+
+li {
+  display: inline;
+}
+
+video,
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+
+/* ========================================
+
+  FOUNDATIONS
+
+=========================================== */
+
+
+/* -------- Defining variables */
+
+:root {
+  /* Colors */
+  --color-primary: #222;
+  --color-secondary: #8c8c8c;
+  --color-light: #f3f3f3;
+  /* Typography */
+  --text-large: clamp(88px, 10.106vw, 164px);
+  --text-medium: clamp(32px, 5.186vw, 84px);
+  --text-display-mobile: 50px;
+  --text-small: clamp(24px, 2.393vw, 40px);
+  --text-body: clamp(20px, 1.5vw, 24px);
+  --letter-spacing-tightest: -0.04em;
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.02em;
+  /* Spacing */
+  --spacing-large: 20.65%;
+  --spacing-medium: 12%;
+  --spacing-small: 6%;
+  --spacing-xsmall: 2%;
+  /* Border */
+  --border-link: 0.12em solid var(--color-primary);
+  --border-device: 0.25em solid var(--color-primary);
+  /* Border radius */
+  --border-radius: 0.65em;
+  /* Widths */
+  --page-container: 94%;
+  --device-width-full: 100%;
+  --device-width-large: 26%;
+  --device-width-small: 20%;
+}
+
+
+/* -------- Body */
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--color-light);
+  color: var(--color-primary);
+  /* 20px up to 1333 > vw > 24px @1600 */
+  font: 600 var(--text-body)/1.3 Helvetica, Arial, sans-serif;
+  letter-spacing: var(--letter-spacing-tight);
+  /* Improves font display by rendering the weight correctly
+  Appearance is too thick without it */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox on MacOS */
+}
+
+
+/* -------- Typography, Links */
+
+h1 {
+  font-size: var(--text-large);
+  letter-spacing: var(--letter-spacing-tightest);
+  line-height: 1;
+}
+
+h2 {
+  font-size: var(--text-medium);
+  letter-spacing: var(--letter-spacing-tightest);
+  line-height: 1;
+}
+
+#filters *,
+button,
+.description a,
+#download *,
+footer p {
+  font-size: var(--text-small);
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+a:link,
+a:visited,
+a:active {
+  position: relative;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding-bottom: 0.1em;
+  border-bottom: var(--border-link);
+  transition: padding-right 0.3s cubic-bezier(0.7, 0, 0, 0.9);
+}
+
+#filters a:link,
+#filters a:visited,
+#filters a:active {
+  color: var(--color-secondary);
+  border-color: transparent;
+  transition: color 0.2s;
+  transform: translateZ(0); /* Need for Safari */
+}
+
+#filters a.active {
+  color: var(--color-primary);
+  border-bottom: var(--border-link);
+}
+
+#filters .fixed a.active {
+  color: var(--color-light);
+}
+
+/* Show link hover if 800 and up */
+
+@media (min-width:800px) {
+
+  a:hover:not(#filters a) {
+    padding-right: 0.9em;
+  }
+  
+  a:not(#filters a) span {
+    position: absolute;
+    top: 0.25em;
+    margin-left: 0.2em;
+    width: 0.7em;
+    height: 0.7em;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  a:not(#filters a) span::after {
+    display: block;
+    width: 0.7em;
+    height: 0.7em;
+    content: "";
+    background: url(/img/icon-arrow.svg) no-repeat 50% 50%;
+    background-size: 1em;
+    transform: rotate(90deg);
+    translate: -0.7em;
+    transition: translate 0.3s cubic-bezier(0.7, 0, 0, 0.9);
+  }
+  
+  a:hover:not(#filters a) span::after {
+    translate: 0;
+  }
+  
+  #filters a:hover {
+    color: var(--color-primary);
+  }
+
+  #filters .fixed a:hover {
+    color: var(--color-light);
+  }
+  
+}
+
+
+/* -------- Page, Sections */
+
+.page-container {
+  width: var(--page-container);
+  margin-inline: auto;
+}
+
+header {
+  margin-top: var(--spacing-xsmall);  
+}
+
+h3 {
+  /* Category name on mobile */
+  display: none;
+}
+
+nav {
+  margin: var(--spacing-xsmall) 0 var(--spacing-small);
+}
+
+.page-section {
+  margin-bottom: var(--spacing-medium);
+}
+
+.transition {
+  opacity: 0;
+}
+
+
+/* ========================================
+
+  FIXED FILTER INTERACTIONS
+
+=========================================== */
+
+
+/* Desktop only */
+@media (min-width:561px) {
+
+  /* -------- Show/hide filters on scroll */
+  
+  nav .fixed {
+    position: fixed;
+    top:  1.6vw;
+    left: 4vw;
+    z-index: 2;
+    display: flex;
+    border-radius: 64px;
+    background: var(--color-primary);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-2vw);
+    transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+  }
+  
+  nav.hidden .fixed {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
+  
+  #filters li:not(:last-child) {
+    margin-right: 0.5em;
+  }
+  
+  .label.animate-in.step-4 {
+    /* Preventing the button text from animating in on page load because it IS needed on mobile */
+    animation-delay: 0s;
+  }
+  
+  /* -------- Open/close filters */
+  
+  nav .fixed button,
+  nav .fixed ul {
+    padding: 0.4em 1em;
+  }
+  
+  nav .fixed button {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  nav .fixed.nav-open button {
+    padding-right: 0;
+    opacity: 0;
+    width: 2.6em;
+    margin-right: 0.4em;
+  }
+  
+  nav .fixed ul {
+    opacity: 0;
+    display: none;
+  }
+  
+  nav .fixed.nav-open ul {
+    display: block;
+    padding-left: 0;
+    animation: filter-list-in 0.4s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+  }
+  
+  nav .fixed .label::before {
+    position: absolute;
+    left: 1.5em;
+    top: 0.7em;
+    z-index: 1;
+    background: url("/img/icon-close-dark.svg") no-repeat center;
+    width: 0.8em;
+    height: 0.8em;
+    transform: scale(0);
+    content: "";
+  }
+  
+  nav .fixed.nav-open .label::before {
+    transform: scale(1);
+    transition: transform 0.2s;
+  }
+
+  .mobile-category-container img {
+    display: none;
+  }
+
+  @keyframes filter-list-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(-1vw, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  /* -------- Setting immediate dismissal of nav upon close to override its animation */
+  
+  nav .fixed.dismiss {
+    transition: none;
+    visibility: hidden;
+  }
+
+}
+
+
+/* ========================================
+
+  ANIMATIONS
+
+=========================================== */
+
+
+/* -------- Intro */
+
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden; /* For zeroHeight */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  animation: zeroHeight 0s 2.8s forwards;
+}
+
+@keyframes zeroHeight {
+  /* Collapsing container to get it out da way */
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+/* Variable values to calculate an animation-delay */ 
+.intro span:nth-child(4) { --intro-order: 1; }
+.intro span:nth-child(6) { --intro-order: 2; }
+.intro span:nth-child(1) { --intro-order: 3; }
+.intro span:nth-child(8) { --intro-order: 4; }
+.intro span:nth-child(15) { --intro-order: 5; }
+.intro span:nth-child(2) { --intro-order: 6; }
+.intro span:nth-child(9) { --intro-order: 7; }
+.intro span:nth-child(13) { --intro-order: 8; }
+.intro span:nth-child(5) { --intro-order: 9; }
+.intro span:nth-child(11) { --intro-order: 10; }
+.intro span:nth-child(7) { --intro-order: 11; }
+.intro span:nth-child(16) { --intro-order: 12; }
+.intro span:nth-child(14) { --intro-order: 13; }
+.intro span:nth-child(12) { --intro-order: 14; }
+.intro span:nth-child(10) { --intro-order: 15; }
+.intro span:nth-child(3) { --intro-order: 16; }
+
+
+/* Initial animation - In */ 
+.intro span {
+  background: url("/img/icon-pie.svg") no-repeat center;
+  background-size: 8vw;
+  animation: introIn 1s calc(var(--intro-order) * 0.04s) backwards;
+}
+
+/* Second animation - Out */ 
+.intro span.out {
+  animation: introOut 0.4s cubic-bezier(0.7, 0, 0.2, 0.9) forwards;
+}
+
+/* Sequential delays for Out exit */ 
+.intro span.out:nth-child(1) { animation-delay: 0.7s; }
+.intro span.out:nth-child(2) { animation-delay: 0.65s; }
+.intro span.out:nth-child(3) { animation-delay: 0.6s; }
+.intro span.out:nth-child(4) { animation-delay: 0.55s; }
+.intro span.out:nth-child(5) { animation-delay: 0.5s; }
+.intro span.out:nth-child(6) { animation-delay: 0.45s; }
+.intro span.out:nth-child(7) { animation-delay: 0.4s; }
+.intro span.out:nth-child(8) { animation-delay: 0.35s; }
+.intro span.out:nth-child(9) { animation-delay: 0.3s; }
+.intro span.out:nth-child(10) { animation-delay: 0.25s; }
+.intro span.out:nth-child(11) { animation-delay: 0.2s; }
+.intro span.out:nth-child(12) { animation-delay: 0.15s; }
+.intro span.out:nth-child(13) { animation-delay: 0.1s; }
+.intro span.out:nth-child(14) { animation-delay: 0.05s; }
+.intro span.out:nth-child(15) { animation-delay: 0.02s; }
+.intro span.out:nth-child(16) { animation-delay: 0s; }
+
+/* Redefine grid as 4x4 for small screens */
+@media (max-width:799px) {
+  .intro {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@keyframes introIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes introOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12vw);
+  }
+}
+
+/* -------- Full page/content */
+
+.animate-in {
+  opacity: 0;
+  animation: animate-in 0.5s cubic-bezier(0.3, 0, 0.2, 1) 2.2s forwards;
+}
+
+.animate-in.step-2 {
+  animation-delay: 2.3s;
+}
+
+.animate-in.step-3 {
+  animation-delay: 2.4s;
+}
+
+.animate-in.step-4 {
+  /* Currently the nav button which I wanted a bit later */
+  animation-delay: 2.6s;
+}
+
+@keyframes animate-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12vw, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* -------- Delaying display of filter and back to top so they don't appear on a scrolled page reload */
+
+nav .fixed.hide,
+#back-to-top-container.hide {
+  opacity: 0;
+  transition: 0s;
+}
+
+#back-to-top-container {
+  transition: opacity 0.2s 0.2s;
+}
+
+/* -------- Letters in / Split elements */
+
+.letters-in {
+  margin-left: -4%;
+  font-size: 53vw;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+}
+
+.split {
+  display: flex;
+  width: var(--page-container);
+  height: 100%;
+}
+
+.split span {
+  opacity: 0;
+  animation: split 0.6s cubic-bezier(0.5, 0.2, 0.1, 1) forwards;
+}
+
+.letters-in span {
+  /* For triggering via IO and need this starting state */
+  opacity: 0;
+}
+
+.split span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.split span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.split span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.split span:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+@keyframes split {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32vw, 0);
+  }
+  60% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+/* ========================================
+
+  GRID LAYOUT, ITEMS
+
+=========================================== */
+
+
+#category-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.category-item {
+  width: var(--device-width-small);
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+}
+
+figure {
+  background: var(--color-primary);
+  border: var(--border-device);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transform: translateZ(0); /* Need for overflow: hidden to work in Safari */
+}
+
+/* -------- Device / Phones */
+
+.phone .description {
+  margin-top: var(--spacing-small);
+}
+
+/* Big phone */
+:nth-child(4n + 1 of .phone) {
+  width: var(--device-width-large);
+  margin-right: var(--spacing-large);
+}
+
+/* Small phone centered */
+:nth-child(8n + 4 of .phone) {
+  margin-left: var(--spacing-large);
+}
+
+/* -------- Device / Desktop */
+
+.desktop {
+  width: var(--device-width-full);
+  margin-left: var(--spacing-medium);
+  margin-right: var(--spacing-medium);	
+}
+
+.desktop-container {
+  display: flex;
+  align-items: center;
+  gap: 4%;
+}
+
+.desktop-container.right {
+  flex-direction: row-reverse;
+}
+
+.desktop .description {
+  width: 60%;
+  max-width: 560px
+}
+
+
+/* ========================================
+
+  SECTION-SPECIFIC STYLING
+
+=========================================== */
+
+
+#category-content {
+  min-height: 100vh;
+}
+
+.letters-in.page-section {
+  /* Accounting for the .category-item bottom-margin that can't be consistently targeted with :last-child */
+  /* Note the calc var * -1 to get the negative value */
+  margin-top: calc(var(--spacing-small) * -1);
+}
+
+#download p {
+  margin-top: 0.4%; /* Need a one-off, man */
+}
+
+#about {
+  width: clamp(420px, 32%, 600px);
+}
+
+
+/* ========================================
+
+  INTERACTIVE FEATURES
+
+=========================================== */
+
+
+/* -------- Video preview / Sound toggle */
+
+.ui-container {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 65%;
+  height: 72px;
+  border-radius: 3em;
+  background: var(--color-light);
+  opacity: 1;
+  transition: opacity 0.1s, width 0.1s, border-radius 0.1s;
+}
+
+.ui-container.is-playing {
+  width: 72px;
+  border-radius: 100%;
+}
+
+.ui-container.is-playing:not(.sound) {
+  opacity: 0;
+}
+
+button.preview {
+  color: var(--color-primary);
+  scale: 1;
+  transition: scale 0.1s;
+}
+
+.is-playing button.preview {
+  scale: 0;
+}
+
+@media (max-width:799px) {
+  button.sound-toggle {
+    scale: 0;
+    transition: scale 0.1s;
+  }
+}
+
+.is-playing button.sound-toggle {
+  scale: 1;
+}
+
+button.sound-toggle {
+  position: absolute;
+  z-index: 2;
+}
+
+button.sound-toggle img {
+  object-fit: cover;
+  object-position: 0 -32px;
+  width: 32px;
+  height: 32px;
+}
+
+.sound-on button.sound-toggle img {
+  object-position: 0 0;
+}
+
+@media (min-width:800px) {
+  button.sound-toggle img {
+    object-position: 0 -34px;
+  }
+  /* See the Firefox section below for a tweak on these values */
+  .sound-on button.sound-toggle img {
+    object-position: 0 -2px;
+  }
+  button.preview {
+    display: none;
+  }
+  .ui-container:not(.sound) {
+    display: none;
+  }
+  .ui-container {
+    padding: 0;
+    border-radius: 100%;
+    height: clamp(56px, 5vw, 80px);
+    width: clamp(56px, 5vw, 80px);
+    cursor: pointer;  
+  }
+  .ui-container button {
+    cursor: pointer;  
+  }
+}
+
+/* -------- Back to top */
+
+/* Common to all screens */
+
+.back-to-top {
+  background: var(--color-light) url("/img/icon-arrow.svg") no-repeat center;
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 80px 40px 0;
+  height: 0;
+  width: 0;
+	opacity: 0;
+	visibility: hidden;
+	cursor: pointer;
+  transform: translateY(2vw);
+	transition: opacity 0.2s, visibility 0s 0.2s, transform 0.2s;
+}
+
+.back-to-top.scrolled {
+	opacity: 1;
+	visibility: visible;
+  transform: translateY(0);
+	transition-delay: 0s;
+}
+
+/* Small screens */
+@media (max-width:560px) {
+  #back-to-top-container {
+    margin: var(--spacing-small) 0 44%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Desktop */
+@media (min-width:561px) {
+  #back-to-top-container {
+  	position: fixed;
+  	right: 4vw;
+  	top: 1.6vw;
+  	z-index: 2;
+  }
+  .back-to-top {
+    padding: 60px 30px 0;
+    background-size: 30px;
+  }
+  .back-to-top:hover {
+    transform: translateY(-0.4vw);
+  }
+}
+
+/* Desktop larger */
+@media (min-width:1300px) {
+  .back-to-top {
+    padding: 80px 40px 0;
+    background-size: auto;
+  }
+}
+
+
+/* ========================================
+
+  FIREFOX
+
+=========================================== */
+
+
+/* Because Firefox renders text baseline or vertical alignment differently, the letters are sitting higher in the text containing block */
+
+@-moz-document url-prefix() {
+  
+  .split {
+    /* Pushing 'Pies' letters-in down */
+    padding-top: 7vw;      
+  }
+  
+  a:not(#filters a) span {
+    /* Adjusting the span/icon position in anchor links */
+    top: 0.1em;
+  }
+  
+  nav .fixed button,
+  nav .fixed ul {
+    /* Pushing the desktop category button and ul down */
+    padding: 0.45em 1em 0.35em;
+  }
+  
+  nav .fixed .label::before {
+    /* That ^ padding also required adjusting the icon position */
+    top: 0.68em;
+  }
+
+  button.sound-toggle img {
+    object-position: 0 -32px;
+  }
+  .sound-on button.sound-toggle img {
+    object-position: 0 0;
+  }
+
+}
+
+
+/* ========================================
+
+  SMALL SCREENS
+
+=========================================== */
+
+
+@media (max-width:560px) {
+  
+  /* -------- Redefining variables */
+  
+  :root {
+    /* Spacing */
+    --spacing-large: 32%;
+    --spacing-medium: 20%;
+    --spacing-small: 12%;
+    --spacing-xsmall: 6%;
+    /* Widths */
+    --page-container: 90%;
+    --device-width-large: 75%;
+    --device-width-small: 65%;
+  }
+  
+  /* -------- Page, Sections */
+
+  header {
+    margin-bottom: var(--spacing-xsmall);
+  }
+
+  h3 {
+    display: block;
+    font-size: var(--text-display-mobile);
+    color: var(--color-secondary);
+    letter-spacing: var(--letter-spacing-tightest);
+  }
+
+  nav {
+    margin: 0;
+  }
+  
+  nav > ul {
+    display: none;
+  }
+
+  /* -------- Category filters */
+
+  nav .fixed .label {
+    position: fixed;
+    bottom: 6vh;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+
+  nav .fixed button {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: var(--color-primary);
+    padding: 0.8em 1.6em;
+    border-radius: 2em;
+  }
+
+  nav .fixed button::after {
+    background: url('/img/icon-caret.svg') no-repeat center;
+    background-size: 1.2em;
+    width: 1.2em;
+    height: 1em;
+    content: "";
+  }
+  
+  .mobile-category-container {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background: var(--color-primary);
+    /* Adding overflow, height, and padding on the "off" state so there is no visible transition when some browsers collapse their bottom bar on scroll */    
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translateY(100vh);
+    transition: transform 0.6s cubic-bezier(0.8, 0.2, 0.1, 1) 0.1s, height 0s 0.4s, padding 0s 0.4s;
+  }
+
+  nav .fixed.nav-open .mobile-category-container {
+    height: 102dvh;
+    /* Specifically dvh here so the open menu height matches the default or scrolled/collapsed browser states */
+    padding: 20dvh 5% 7vh;
+    transform: translateY(-1vh);
+    transition: transform 0.4s cubic-bezier(0.8, 0.2, 0.1, 1) 0.0s, height 0s 0s, padding 0s 0s;
+  }
+
+  .mobile-category-container img {
+    transform: translateY(6vh);
+    width: 1.2em;
+    height: 1.2em;
+    padding: 0.8em;
+    opacity: 0;
+    transition-delay: 0.4s;
+  }
+  
+  nav .fixed.nav-open .mobile-category-container img {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.3s 0.4s, opacity 0.3s 0.4s;
+  }
+
+  nav .fixed ul {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(6vh);
+    transition-delay: 0.4s;
+  }
+
+  nav .fixed.nav-open ul {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s 0.35s, opacity 0.3s 0.35s;
+  }
+
+  nav .fixed li {
+    display: block;
+    margin-bottom: calc(var(--spacing-xsmall) * -0.5);
+  }
+  
+  #filters .fixed a {
+    font-size: var(--text-display-mobile);
+    letter-spacing: var(--letter-spacing-tightest);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0;
+  }
+  
+  #filters .fixed a.active {
+    border: none;
+  }
+  
+  body.nav-open {
+    overflow: hidden;
+  }
+  
+  /* -------- Un-Grid layout, Items */
+  
+  #category-collection {
+    justify-content: center;
+  }
+  
+  .category-item {
+    width: var(--device-width-large);
+    margin-left: 0;
+  }
+  
+  :nth-child(4n + 1 of .phone) {
+    margin-right: 0;
+  }
+
+  :nth-child(8n + 4 of .phone) {
+    margin-left: 0;
+  }
+  
+  .desktop {
+    width: var(--device-width-full);
+    margin-left: var(--spacing-xsmall);
+    margin-right: var(--spacing-xsmall);
+  }
+  
+  .desktop-container {
+    display: initial;
+  }
+  
+  .desktop .description {
+    width: initial;
+    margin-top: var(--spacing-small);
+  }
+  
+  /* Overriding var value for better spacing */
+  .category-item .description {
+    /* Based on a visual ideal of 24px converted to vw */
+    margin-top: 6.153vw;
+  }
+
+  /* -------- Page, Sections */
+
+  .letters-in.page-section {
+    margin-top: calc(var(--spacing-small) * -0.6);
+  }
+  
+  .letters-in {
+    font-size: 50vw;
+  }  
+  
+  #about {
+    width: 100%;
+  }
+  
+  #back-to-top-container {
+    transition: opacity 0.2s 1s;
+  }
+  
+}

@@ -1,0 +1,11 @@
+# Ignore IDE config and clips
+.nova/Configuration.json
+.nova/Clips.json
+
+# Ignore Mac system files 
+.DS_Store
+
+# Ignore test files
+css/test.css
+js/test.js
+test.php
