@@ -14,16 +14,16 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#f3f3f3">    
-    <!-- ========== Facebook and Twitter Share Meta -->
+    <!-- ========== OG Share Meta -->
     <meta property="og:url" content="https://ira.design">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pies — Prototype parts for ProtoPie">
     <meta property="og:description" content="A collection of minimal individual ProtoPie prototypes highlighting a specific interaction or function.">
-    <meta property="og:image" content="https://pies.design/img/facebook-og.png">
+    <meta property="og:image" content="https://pies.design/img/og-fb-li.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://pies.design/img/twitter.png">
+    <meta name="twitter:image" content="https://pies.design/img/og-x.png">
     <!-- ========== CSS -->
     <link rel="stylesheet" href="/css/main.css?v=<?php echo filemtime($_SERVER['DOCUMENT_ROOT'] . '/css/main.css'); ?>">    
     <!-- ========== JS deferred -->
