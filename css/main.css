@@ -472,7 +472,7 @@ nav {
 
 .animate-in.step-4 {
   /* Currently the nav button which I wanted a bit later */
-  animation-delay: 2.6s;
+  animation-delay: 3s;
 }
 
 @keyframes animate-in {

@@ -277,10 +277,8 @@ function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
     if (window.matchMedia('(min-width: 800px)').matches) {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          video.play();
-        }, 100);
+      if (entry.isIntersecting && video.readyState >= 3) { // Check if video is loaded
+        video.play();
         console.log("Vid playing");
       } else {
         video.pause();
@@ -299,7 +297,7 @@ function handleSoundIntersection(entries) {
         if (video.previousElementSibling) { // Targeting '.ui-container'
           video.previousElementSibling.classList.add('sound-off');
           video.previousElementSibling.classList.remove('sound-on');
-          console.log("Out and off");
+          //console.log("Out and off");
         }
     }
   });
