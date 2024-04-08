@@ -277,12 +277,14 @@ function handlePlayPauseIntersection(entries) {
   entries.forEach(entry => {
     const video = entry.target;
     if (window.matchMedia('(min-width: 800px)').matches) {
-      if (entry.isIntersecting && video.readyState >= 3) { // Check if video is loaded
-        video.play();
-        console.log("Vid playing");
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          video.play();
+        }, 100);
+        //console.log("Vid playing");
       } else {
         video.pause();
-        console.log("Vid paused");
+        //console.log("Vid paused");
       }
     }
   });
@@ -520,6 +522,6 @@ desktopVideos.forEach(videoDesktop => {
 
 var lazyLoadInstance = new LazyLoad({
   thresholds: "140%", // Maps to rootMargin
-  callback_enter: (el)=>{console.log("Lazy has entered");}
+  //callback_enter: (el)=>{console.log("Lazy has entered");}
 });
 lazyLoadInstance.update();
