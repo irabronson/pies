@@ -494,7 +494,7 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Shopping bag with tally stored across pages.</p>
+                  <p>Shopping bag with total stored across pages.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=f004beb3-cc45-4128-b341-e5d537caab18" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
@@ -544,7 +544,7 @@
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Visual interaction tracer with speed-based size. Desktop cursor or touch device.</p>
+                    <p>Visual interaction tracer with velocity-based size. Desktop cursor or touch device.</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=117915e2-4b73-4d7a-99b8-77cbe5483b06" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>
@@ -796,7 +796,7 @@
                   </video>
                 </figure>
                 <div class="description">
-                  <p>Progress-infused UI driven by video time, with event fired at video end.</p>
+                  <p>UI and progress indicator driven by video time, with event fired at video end.</p>
                   <a href="https://cloud.protopie.io/p/fcbe2abcde6ee53b555fe3b8?sceneId=4054830e-849d-43d4-8162-abaf470a378d" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                 </div>
               </div>
@@ -829,7 +829,7 @@
                     </video>
                   </figure>
                   <div class="description">
-                    <p>Mask hover follow with z-index switching.</p>
+                    <p>Mask hover follow with z-index reordering.</p>
                     <a href="https://cloud.protopie.io/p/5ab22a1189f09a38827fcda1?sceneId=a1e2b5d1-ca04-42a9-932a-4ccc04fc8084" target="_blank" title="Try this Pie and download the source file">Get Pie<span></span></a>
                   </div>
                 </div>
@@ -880,7 +880,6 @@
             <p>I often build small one-off pieces of isolated functionality when learning or experimenting with features in ProtoPie; unstyled individual interactions and parts that are more like wireframes, not over-designed complete concepts or experiences.</p>
             <p>With a growing backlog of these, I realized that it would be cool to create a consistent collection that exposes some techniques for others to learn from. It’s not a component library nor is it a design system. It’s a variety of dynamic prototype parts, largely driven by expressions/formulas and variables.</p>
             <p>For the most part, these are things not possible in Figma, but either way, if you're reaching for ProtoPie for whatever reason, here's how to do stuff.</p>
-            <p></p>
           </div>
           
           <!-- Footer -->
