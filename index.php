@@ -13,9 +13,9 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#454545">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f3f3f3">    
+    <meta name="theme-color" content="#f3f3f3">
     <!-- ========== OG Share Meta -->
-    <meta property="og:url" content="https://ira.design">
+    <meta property="og:url" content="https://pies.design">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pies — Prototype parts for ProtoPie">
     <meta property="og:description" content="A collection of minimal individual ProtoPie prototypes highlighting a specific interaction or function.">
