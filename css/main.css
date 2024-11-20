@@ -415,36 +415,30 @@ nav {
 .intro span:nth-child(10) { --intro-order: 15; }
 .intro span:nth-child(3) { --intro-order: 16; }
 
-
-/* Initial animation - In */ 
+/* Combined animation for both in and out phases */ 
 .intro span {
   background: url("/img/icon-pie.svg") no-repeat center;
   background-size: 8vw;
-  animation: introIn 1s calc(var(--intro-order) * 0.04s) backwards;
+  animation: introInOut 1.8s cubic-bezier(0.7, 0, 0.2, 0.9) calc(var(--intro-order) * 0.04s) both;
 }
 
-/* Second animation - Out */ 
-.intro span.out {
-  animation: introOut 0.4s cubic-bezier(0.7, 0, 0.2, 0.9) forwards;
+@keyframes introInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  78% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10vw);
+  }
 }
-
-/* Sequential delays for Out exit */ 
-.intro span.out:nth-child(1) { animation-delay: 0.7s; }
-.intro span.out:nth-child(2) { animation-delay: 0.65s; }
-.intro span.out:nth-child(3) { animation-delay: 0.6s; }
-.intro span.out:nth-child(4) { animation-delay: 0.55s; }
-.intro span.out:nth-child(5) { animation-delay: 0.5s; }
-.intro span.out:nth-child(6) { animation-delay: 0.45s; }
-.intro span.out:nth-child(7) { animation-delay: 0.4s; }
-.intro span.out:nth-child(8) { animation-delay: 0.35s; }
-.intro span.out:nth-child(9) { animation-delay: 0.3s; }
-.intro span.out:nth-child(10) { animation-delay: 0.25s; }
-.intro span.out:nth-child(11) { animation-delay: 0.2s; }
-.intro span.out:nth-child(12) { animation-delay: 0.15s; }
-.intro span.out:nth-child(13) { animation-delay: 0.1s; }
-.intro span.out:nth-child(14) { animation-delay: 0.05s; }
-.intro span.out:nth-child(15) { animation-delay: 0.02s; }
-.intro span.out:nth-child(16) { animation-delay: 0s; }
 
 /* Redefine grid as 4x4 for small screens */
 @media (max-width:799px) {
@@ -454,34 +448,12 @@ nav {
   }
 }
 
-@keyframes introIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes introOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  70% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(12vw);
-  }
-}
 
 /* -------- Full page/content */
 
 .animate-in {
   opacity: 0;
-  animation: animate-in 0.5s cubic-bezier(0.3, 0, 0.2, 1) 2.2s forwards;
+  animation: animate-in 0.6s cubic-bezier(0.3, 0, 0.2, 1) 2.2s forwards;
 }
 
 .animate-in.step-2 {
@@ -494,7 +466,7 @@ nav {
 
 .animate-in.step-4 {
   /* Currently the nav button which I wanted a bit later */
-  animation-delay: 3s;
+  animation-delay: 2.6s;
 }
 
 @keyframes animate-in {

@@ -413,15 +413,6 @@ if (window.matchMedia("(min-width: 561px)").matches) {
 }
 
 
-/* -------- Add class when intro animation completes */
-
-document.querySelector('.intro span:nth-child(6)').addEventListener('animationend', function() {
-  document.querySelectorAll('.intro span').forEach(function(element) {
-    element.classList.add('out');
-  });
-});
-
-
 /* -------- Trigger .letters-in animation on scroll */
 
 const splitElement = document.querySelector('.letters-in > div');
