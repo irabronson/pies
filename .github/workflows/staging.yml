@@ -2,17 +2,17 @@ on:
   push:
     branches:
       - staging
-name: Deploy to STAGING branch on push
+name: Deploy to STAGING
 jobs:
   web-deploy:
     name: Deploy to STAGING
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     
     - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: SamKirkland/FTP-Deploy-Action@v4.4.0
       with:
         server: 173.254.88.148
         username: ${{ secrets.ftp_username_staging }}
